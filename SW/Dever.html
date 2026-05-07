@@ -1,671 +1,964 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conheça a história do basquete, regras oficiais, jogadores lendários e acompanhe resultados atualizados da NBA.">
+  <meta name="author" content="Guilherme Carvalho">
+  <title>BASQUETE — História, Regras e Lendas da NBA</title>
 
-    <!-- SEO -->
-    <meta name="description"
-        content="Conheça a história do basquete, regras oficiais, jogadores lendários e acompanhe resultados atualizados da NBA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 
-    <meta name="keywords"
-        content="basquete, NBA, Michael Jordan, LeBron James, Kobe Bryant">
+  <style>
+    :root {
+      --orange: #FF6B00;
+      --orange-light: #FF8C30;
+      --orange-glow: rgba(255, 107, 0, 0.18);
+      --dark: #0A0A0A;
+      --dark-2: #111111;
+      --dark-3: #1A1A1A;
+      --dark-4: #222222;
+      --white: #F5F0EA;
+      --gray: #888888;
+      --gray-light: #AAAAAA;
+      --border: rgba(255,255,255,0.06);
+    }
 
-    <meta name="author" content="Guilherme Carvalho">
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <title>Basquete | História, Regras e Lendas da NBA</title>
+    html { font-size: 16px; }
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+      cursor: default;
+    }
 
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    /* Skip link */
+    .skip-link {
+      position: absolute; left: -999px; top: 10px;
+      background: var(--orange); color: #fff;
+      padding: 10px 20px; z-index: 9999; border-radius: 6px;
+    }
+    .skip-link:focus { left: 10px; }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    /* ─── TYPOGRAPHY ─────────────────────────── */
+    .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.03em; }
+    .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
 
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 18px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0) 100%);
+      backdrop-filter: blur(0px);
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    header.scrolled {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .title-font {
-            font-family: 'Anton', sans-serif;
-            letter-spacing: 2px;
-        }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 4px;
+      color: var(--white);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo span { color: var(--orange); }
 
-        /* Skip Link */
-        .skip-link {
-            position: absolute;
-            left: -999px;
-            top: 10px;
-            background: #f97316;
-            color: white;
-            padding: 12px 20px;
-            z-index: 9999;
-            border-radius: 8px;
-        }
+    nav ul { list-style: none; display: flex; gap: 40px; }
+    nav a {
+      font-size: 13px; font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray-light);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--orange);
+      transition: width 0.3s;
+    }
+    nav a:hover { color: var(--white); }
+    nav a:hover::after { width: 100%; }
 
-        .skip-link:focus {
-            left: 10px;
-        }
+    .btn-contrast {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      font-weight: 600; border: 1px solid rgba(255,255,255,0.15);
+      padding: 8px 18px; border-radius: 4px; cursor: pointer;
+      background: transparent; color: var(--gray-light);
+      transition: all 0.2s;
+    }
+    .btn-contrast:hover { border-color: var(--orange); color: var(--orange); }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    .header-right { display: flex; align-items: center; gap: 32px; }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    /* ─── HERO ───────────────────────────────── */
+    .hero {
+      height: 100vh; min-height: 700px;
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 0 0 80px;
+      position: relative; overflow: hidden;
+    }
 
-        .animate-fadeIn {
-            animation: fadeInUp 1s ease-out forwards;
-        }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1800&auto=format&fit=crop');
+      background-size: cover; background-position: center 30%;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(10,10,10,0.3) 0%,
+        rgba(10,10,10,0.1) 30%,
+        rgba(10,10,10,0.7) 70%,
+        rgba(10,10,10,0.98) 100%
+      );
+    }
 
-        @keyframes marquee {
-            0% {
-                transform: translateX(0%);
-            }
+    /* Grain overlay */
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
 
-            100% {
-                transform: translateX(-100%);
-            }
-        }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 60px;
+      animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
 
-        .animate-marquee {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 30s linear infinite;
-        }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .carousel-container:hover .animate-marquee {
-            animation-play-state: paused;
-        }
+    .hero-eyebrow {
+      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--orange); font-weight: 600; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 32px; height: 2px; background: var(--orange);
+    }
 
-        /* Alto contraste */
-        body.high-contrast {
-            background-color: #000 !important;
-            color: #FFFF00 !important;
-        }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 12vw, 160px);
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--orange); }
 
-        body.high-contrast * {
-            background-color: #000 !important;
-            color: #FFFF00 !important;
-            border-color: #FFFF00 !important;
-        }
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--gray-light);
+      max-width: 480px;
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
 
-        body.high-contrast img {
-            filter: grayscale(100%) contrast(120%);
-            border: 2px solid #FFFF00;
-        }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--orange); color: #fff;
+      padding: 16px 36px; border-radius: 4px;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .hero-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.12);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    .hero-cta:hover::before { transform: translateX(0); }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255, 107, 0, 0.4); }
 
-        body.high-contrast a {
-            text-decoration: underline;
-        }
-    </style>
+    .hero-stats {
+      position: absolute; right: 60px; bottom: 80px; z-index: 2;
+      display: flex; flex-direction: column; gap: 2px;
+      text-align: right;
+    }
+    .hero-stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px; line-height: 1;
+      color: var(--white);
+    }
+    .hero-stat-label {
+      font-size: 11px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--orange);
+    }
+
+    /* ─── TICKER ─────────────────────────────── */
+    .ticker-wrap {
+      background: var(--orange);
+      overflow: hidden; padding: 12px 0;
+      position: relative;
+    }
+    .ticker-track {
+      display: flex; white-space: nowrap;
+      animation: ticker 35s linear infinite;
+    }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 0 36px;
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      color: #fff; text-transform: uppercase;
+    }
+    .ticker-team { font-weight: 400; opacity: 0.85; }
+    .ticker-score { font-family: 'Bebas Neue', sans-serif; font-size: 18px; }
+    .ticker-sep { opacity: 0.4; margin: 0 4px; }
+    .ticker-status {
+      font-size: 10px; padding: 2px 8px;
+      background: rgba(0,0,0,0.25); border-radius: 3px;
+      letter-spacing: 1px;
+    }
+    .ticker-dot { font-size: 8px; opacity: 0.4; }
+
+    /* ─── SECTION COMMON ─────────────────────── */
+    section { padding: 120px 60px; }
+
+    .section-label {
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--orange); font-weight: 600;
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: ''; width: 24px; height: 2px; background: var(--orange);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: 1; color: var(--white);
+      margin-bottom: 60px;
+    }
+
+    /* ─── HISTÓRIA ───────────────────────────── */
+    #historia { background: var(--dark); max-width: 100%; }
+    .historia-inner { max-width: 1280px; margin: 0 auto; }
+
+    .historia-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+
+    .historia-text { }
+    .historia-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 22px;
+      color: var(--orange); margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .historia-text p {
+      font-size: 17px; line-height: 1.8;
+      color: #BBBBB5; margin-bottom: 18px; font-weight: 300;
+    }
+    .historia-text strong { color: var(--white); font-weight: 600; }
+
+    .historia-quote {
+      margin: 32px 0;
+      padding: 24px 32px;
+      border-left: 3px solid var(--orange);
+      background: var(--dark-3);
+      border-radius: 0 8px 8px 0;
+    }
+    .historia-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 20px;
+      color: var(--white); line-height: 1.5;
+      margin: 0;
+    }
+    .historia-quote cite {
+      display: block; margin-top: 10px;
+      font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--orange);
+      font-style: normal; font-family: 'DM Sans', sans-serif;
+    }
+
+    .historia-img-wrap {
+      position: relative;
+    }
+    .historia-img-wrap::before {
+      content: '1891'; position: absolute;
+      top: -40px; right: -20px; z-index: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 140px; color: rgba(255,107,0,0.06);
+      line-height: 1; pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .historia-img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; border-radius: 4px;
+      filter: grayscale(20%) contrast(1.05);
+      position: relative; z-index: 1;
+      transition: filter 0.5s;
+    }
+    .historia-img:hover { filter: grayscale(0%) contrast(1.1); }
+
+    .historia-img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      background: linear-gradient(to top, rgba(10,10,10,0.95), transparent);
+      padding: 60px 24px 24px;
+      border-radius: 0 0 4px 4px;
+    }
+    .historia-img-caption p {
+      font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray-light);
+      margin: 0;
+    }
+
+    /* ─── REGRAS ─────────────────────────────── */
+    #regras {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .regras-inner { max-width: 1280px; margin: 0 auto; }
+
+    .regras-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .regra-card {
+      background: var(--dark-3);
+      padding: 48px 40px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .regra-card:hover { background: var(--dark-4); }
+    .regra-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--orange);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .regra-card:hover::before { transform: scaleX(1); }
+
+    .regra-icon {
+      font-size: 40px; margin-bottom: 24px;
+      display: block;
+    }
+    .regra-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 1px;
+      color: var(--white); margin-bottom: 24px;
+    }
+
+    .regra-item {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .regra-item:last-child { border-bottom: none; }
+    .regra-label { font-size: 14px; color: var(--gray-light); font-weight: 400; }
+    .regra-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; color: var(--orange);
+      letter-spacing: 1px;
+    }
+
+    /* ─── JOGADORES ──────────────────────────── */
+    #jogadores { background: var(--dark); }
+    .jogadores-inner { max-width: 1280px; margin: 0 auto; }
+
+    .players-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .player-card {
+      position: relative; overflow: hidden;
+      border-radius: 4px; cursor: pointer;
+      aspect-ratio: 3/4;
+      background: var(--dark-3);
+    }
+
+    .player-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: top;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s;
+      filter: grayscale(30%) contrast(1.1);
+    }
+    .player-card:hover img {
+      transform: scale(1.06);
+      filter: grayscale(0%) contrast(1.15);
+    }
+
+    /* Orange color overlay on hover */
+    .player-card::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top,
+        rgba(255, 107, 0, 0.1) 0%,
+        transparent 50%
+      );
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .player-card:hover::before { opacity: 1; }
+
+    .player-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to top,
+        rgba(10,10,10,0.97) 0%,
+        rgba(10,10,10,0.5) 35%,
+        transparent 65%
+      );
+    }
+
+    .player-info {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      padding: 32px 28px;
+    }
+
+    .player-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 90px; line-height: 1;
+      color: rgba(255, 107, 0, 0.12);
+      position: absolute; top: 20px; right: 20px; z-index: 2;
+      transition: color 0.3s;
+    }
+    .player-card:hover .player-number { color: rgba(255, 107, 0, 0.22); }
+
+    .player-nickname {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--orange); font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .player-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px; line-height: 1; color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .player-stats {
+      display: flex; gap: 24px;
+      margin-bottom: 0;
+    }
+    .player-stat { }
+    .player-stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px; line-height: 1; color: var(--white);
+    }
+    .player-stat-num .star { color: var(--orange); }
+    .player-stat-label {
+      font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .player-divider {
+      width: 1px; background: rgba(255,255,255,0.12);
+      align-self: stretch; margin: 4px 0;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--dark-2);
+      border-top: 1px solid var(--border);
+      padding: 48px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: 4px;
+      color: var(--white);
+    }
+    .footer-brand span { color: var(--orange); }
+
+    .footer-text { font-size: 13px; color: var(--gray); }
+    .footer-link {
+      color: var(--orange); text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--orange-light); }
+
+    .footer-note {
+      font-size: 11px; color: rgba(136,136,136,0.6);
+      margin-top: 6px;
+    }
+
+    /* ─── SCROLL ANIMATION ───────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── HIGH CONTRAST ──────────────────────── */
+    body.high-contrast {
+      background: #000 !important; color: #FFFF00 !important;
+    }
+    body.high-contrast * {
+      background-color: #000 !important;
+      color: #FFFF00 !important;
+      border-color: #FFFF00 !important;
+    }
+    body.high-contrast img { filter: grayscale(100%) contrast(130%); border: 2px solid #FFFF00; }
+    body.high-contrast a { text-decoration: underline; }
+    body.high-contrast .hero-bg::after { background: rgba(0,0,0,0.9) !important; }
+
+    /* ─── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 900px) {
+      header { padding: 16px 24px; }
+      nav ul { display: none; }
+      section { padding: 80px 24px; }
+      .historia-grid { grid-template-columns: 1fr; gap: 40px; }
+      .historia-img-wrap::before { display: none; }
+      .regras-grid { grid-template-columns: 1fr; gap: 2px; }
+      .players-grid { grid-template-columns: 1fr; gap: 16px; }
+      .player-card { aspect-ratio: 4/3; }
+      .hero-content { padding: 0 24px; }
+      .hero-stats { right: 24px; }
+      .footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
 </head>
 
-<body class="bg-neutral-950 text-white overflow-x-hidden">
+<body>
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <!-- MISSÃO SECRETA -->
-    <a href="#conteudo-principal" class="skip-link">
-        Pular para o conteúdo principal
-    </a>
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
 
-    <!-- VLibras -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
+  <!-- HEADER -->
+  <header id="site-header" role="banner">
+    <div class="logo">🏀 <span>NBA</span> GL</div>
+    <div class="header-right">
+      <nav aria-label="Menu principal">
+        <ul>
+          <li><a href="#historia">História</a></li>
+          <li><a href="#regras">Regras</a></li>
+          <li><a href="#jogadores">Lendas</a></li>
+        </ul>
+      </nav>
+      <button id="btn-contrast" class="btn-contrast" onclick="toggleContrast()" aria-label="Ativar modo alto contraste">
+        👁 Contraste
+      </button>
+    </div>
+  </header>
 
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
+  <main id="conteudo-principal">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Banner principal">
+      <div class="hero-bg" role="img" aria-label="Quadra de basquete iluminada"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Temporada 2025–2026</p>
+        <h1 class="hero-title">
+          O ESPORTE<br>DAS <span class="accent">LENDAS</span>
+        </h1>
+        <p class="hero-subtitle">
+          História, regras e os maiores nomes que já tocaram uma bola de basquete.
+        </p>
+        <a href="#historia" class="hero-cta" aria-label="Explorar o conteúdo">
+          Explorar ↓
+        </a>
+      </div>
+
+      <div class="hero-stats" aria-label="Estatísticas rápidas">
+        <div>
+          <p class="hero-stat-num">30</p>
+          <p class="hero-stat-label">Franquias NBA</p>
         </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap" role="marquee" aria-label="Resultados recentes">
+      <div class="ticker-track">
+        <!-- set 1 -->
+        <span class="ticker-item">
+          <span class="ticker-team">BOS</span>
+          <span class="ticker-score">112</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">PHI</span>
+          <span class="ticker-score">105</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">LAL</span>
+          <span class="ticker-score">108</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">GSW</span>
+          <span class="ticker-score">121</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">DEN</span>
+          <span class="ticker-score">132</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">PHX</span>
+          <span class="ticker-score">127</span>
+          <span class="ticker-status">2OT</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">MIL</span>
+          <span class="ticker-score">98</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">MIA</span>
+          <span class="ticker-score">102</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">NYK</span>
+          <span class="ticker-score">118</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">CHI</span>
+          <span class="ticker-score">109</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <!-- set 2 (clone para loop) -->
+        <span class="ticker-item">
+          <span class="ticker-team">BOS</span>
+          <span class="ticker-score">112</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">PHI</span>
+          <span class="ticker-score">105</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">LAL</span>
+          <span class="ticker-score">108</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">GSW</span>
+          <span class="ticker-score">121</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">DEN</span>
+          <span class="ticker-score">132</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">PHX</span>
+          <span class="ticker-score">127</span>
+          <span class="ticker-status">2OT</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">MIL</span>
+          <span class="ticker-score">98</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">MIA</span>
+          <span class="ticker-score">102</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item">
+          <span class="ticker-team">NYK</span>
+          <span class="ticker-score">118</span>
+          <span class="ticker-sep">vs</span>
+          <span class="ticker-team">CHI</span>
+          <span class="ticker-score">109</span>
+          <span class="ticker-status">FINAL</span>
+        </span>
+        <span class="ticker-dot">●</span>
+      </div>
     </div>
 
-    <!-- HEADER -->
-    <header
-        class="fixed top-0 w-full backdrop-blur-md bg-neutral-900/80 z-50 border-b border-white/10">
+    <!-- HISTÓRIA -->
+    <section id="historia" aria-labelledby="titulo-historia">
+      <div class="historia-inner">
+        <div class="reveal">
+          <p class="section-label">Origem</p>
+          <h2 id="titulo-historia" class="section-title">A Invenção<br>do Basquete</h2>
+        </div>
 
-        <nav
-            class="max-w-7xl mx-auto flex justify-between items-center p-4"
-            aria-label="Menu principal">
-
-            <h1 class="text-3xl title-font text-orange-500 flex items-center gap-2">
-                🏀 BASQUETE
-            </h1>
-
-            <div class="flex items-center gap-4">
-
-                <button id="btn-contrast"
-                    onclick="toggleContrast()"
-                    aria-label="Ativar modo alto contraste"
-                    class="text-xs md:text-sm font-bold border border-white/20 px-4 py-2 rounded-full hover:bg-white/10 transition-colors">
-
-                    👁️ Alto Contraste
-                </button>
-
-                <ul
-                    class="hidden md:flex gap-6 text-sm md:text-lg font-semibold bg-black/20 px-6 py-2 rounded-full">
-
-                    <li>
-                        <a href="#historia" class="hover:text-orange-400">
-                            História
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#regras" class="hover:text-orange-400">
-                            Regras
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#jogadores" class="hover:text-orange-400">
-                            Jogadores
-                        </a>
-                    </li>
-
-                </ul>
-
+        <div class="historia-grid">
+          <article class="historia-text reveal reveal-delay-1">
+            <h3>Dezembro de 1891</h3>
+            <p>
+              O basquete nasceu da necessidade. O professor canadense
+              <strong>James Naismith</strong> precisava de uma atividade para manter seus
+              alunos ativos durante o rigoroso inverno de Springfield, Massachusetts.
+            </p>
+            <p>
+              Com uma bola de futebol e dois cestos de pêssego presos às galerias,
+              Naismith criou as primeiras 13 regras do jogo — muitas ainda aplicadas hoje.
+            </p>
+            <div class="historia-quote">
+              <p>"O objetivo era criar um esporte que exigisse habilidade, não força bruta."</p>
+              <cite>— James Naismith, 1891</cite>
             </div>
-        </nav>
-    </header>
+            <p>
+              De Springfield para o mundo inteiro: hoje o basquete é praticado por mais de
+              <strong>450 milhões de pessoas</strong> em mais de 200 países.
+            </p>
+          </article>
 
-    <!-- MAIN -->
-    <main id="conteudo-principal">
-
-        <!-- HERO -->
-        <section
-            class="h-screen flex items-center justify-center bg-cover bg-center relative"
-            style="background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1600&auto=format&fit=crop');">
-
-            <div class="absolute inset-0 bg-black/70"></div>
-
-            <div class="relative max-w-3xl text-center px-4 animate-fadeIn opacity-0">
-
-                <h2
-                    class="text-5xl md:text-7xl font-extrabold title-font text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-
-                    O Esporte das Lendas
-                </h2>
-
-                <p class="mt-6 text-lg md:text-2xl text-gray-200">
-
-                    História, regras, grandes jogadores e tudo sobre o universo do basquete.
-
-                </p>
-
-                <a href="#historia"
-                    class="mt-8 inline-block bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full text-lg font-bold transition">
-
-                    Explorar
-                </a>
-
+          <figure class="historia-img-wrap reveal reveal-delay-2">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/James_Naismith.jpg/800px-James_Naismith.jpg"
+              alt="James Naismith, inventor do basquete, segurando uma bola e uma cesta"
+              class="historia-img"
+            />
+            <div class="historia-img-caption">
+              <p>James Naismith — Springfield, 1891</p>
             </div>
-        </section>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-        <!-- CARROSSEL -->
-        <section
-            class="bg-neutral-900 border-y border-white/10 py-3 overflow-hidden carousel-container">
+    <!-- REGRAS -->
+    <section id="regras" aria-labelledby="titulo-regras">
+      <div class="regras-inner">
+        <div class="reveal">
+          <p class="section-label">Regras Oficiais</p>
+          <h2 id="titulo-regras" class="section-title">O Essencial<br>do Jogo</h2>
+        </div>
 
-            <h2 class="sr-only">
-                Resultados recentes da NBA
-            </h2>
+        <div class="regras-grid">
+          <article class="regra-card reveal reveal-delay-1" tabindex="0">
+            <span class="regra-icon" aria-hidden="true">⏱</span>
+            <h3>Cronômetro</h3>
+            <div class="regra-item">
+              <span class="regra-label">NBA — Duração</span>
+              <span class="regra-value">48 MIN</span>
+            </div>
+            <div class="regra-item">
+              <span class="regra-label">FIBA — Duração</span>
+              <span class="regra-value">40 MIN</span>
+            </div>
+            <div class="regra-item">
+              <span class="regra-label">Tempo de ataque</span>
+              <span class="regra-value">24 SEG</span>
+            </div>
+          </article>
 
-            <div class="flex">
+          <article class="regra-card reveal reveal-delay-2" tabindex="0">
+            <span class="regra-icon" aria-hidden="true">🏀</span>
+            <h3>Pontuação</h3>
+            <div class="regra-item">
+              <span class="regra-label">Lance livre</span>
+              <span class="regra-value">1 PT</span>
+            </div>
+            <div class="regra-item">
+              <span class="regra-label">Dentro do garrafão</span>
+              <span class="regra-value">2 PTS</span>
+            </div>
+            <div class="regra-item">
+              <span class="regra-label">Linha de 3 pontos</span>
+              <span class="regra-value">3 PTS</span>
+            </div>
+          </article>
 
-                <div class="animate-marquee items-center">
+          <article class="regra-card reveal reveal-delay-3" tabindex="0">
+            <span class="regra-icon" aria-hidden="true">⚠️</span>
+            <h3>Faltas</h3>
+            <div class="regra-item">
+              <span class="regra-label">NBA — Limite</span>
+              <span class="regra-value">6 FALTAS</span>
+            </div>
+            <div class="regra-item">
+              <span class="regra-label">FIBA — Limite</span>
+              <span class="regra-value">5 FALTAS</span>
+            </div>
+            <div class="regra-item">
+              <span class="regra-label">Após limite</span>
+              <span class="regra-value">EXPULSÃO</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-                    <article
-                        class="inline-flex items-center space-x-3 bg-neutral-800 border border-white/10 px-4 py-2 rounded-full mx-3">
+    <!-- JOGADORES -->
+    <section id="jogadores" aria-labelledby="titulo-jogadores">
+      <div class="jogadores-inner">
+        <div class="reveal">
+          <p class="section-label">Hall da Fama</p>
+          <h2 id="titulo-jogadores" class="section-title">Lendas<br>Imortais</h2>
+        </div>
 
-                        <span class="font-bold">BOS</span>
-                        <span class="text-orange-500">118</span>
+        <div class="players-grid">
 
-                        <span class="text-gray-500">vs</span>
-
-                        <span class="font-bold">NYK</span>
-                        <span>111</span>
-
-                        <span class="text-xs bg-red-600 px-2 py-1 rounded-full">
-                            FINAL
-                        </span>
-
-                    </article>
-
-                    <article
-                        class="inline-flex items-center space-x-3 bg-neutral-800 border border-white/10 px-4 py-2 rounded-full mx-3">
-
-                        <span class="font-bold">LAL</span>
-                        <span class="text-orange-500">124</span>
-
-                        <span class="text-gray-500">vs</span>
-
-                        <span class="font-bold">DEN</span>
-                        <span>119</span>
-
-                        <span class="text-xs bg-green-600 px-2 py-1 rounded-full">
-                            OT
-                        </span>
-
-                    </article>
-
-                    <article
-                        class="inline-flex items-center space-x-3 bg-neutral-800 border border-white/10 px-4 py-2 rounded-full mx-3">
-
-                        <span class="font-bold">GSW</span>
-                        <span class="text-orange-500">115</span>
-
-                        <span class="text-gray-500">vs</span>
-
-                        <span class="font-bold">PHX</span>
-                        <span>109</span>
-
-                        <span class="text-xs bg-red-600 px-2 py-1 rounded-full">
-                            FINAL
-                        </span>
-
-                    </article>
-
-                    <article
-                        class="inline-flex items-center space-x-3 bg-neutral-800 border border-white/10 px-4 py-2 rounded-full mx-3">
-
-                        <span class="font-bold">DAL</span>
-                        <span class="text-orange-500">122</span>
-
-                        <span class="text-gray-500">vs</span>
-
-                        <span class="font-bold">MIA</span>
-                        <span>116</span>
-
-                        <span class="text-xs bg-red-600 px-2 py-1 rounded-full">
-                            FINAL
-                        </span>
-
-                    </article>
-
+          <!-- JORDAN -->
+          <article class="player-card reveal reveal-delay-1" tabindex="0" aria-label="Michael Jordan, The G.O.A.T">
+            <span class="player-number" aria-hidden="true">23</span>
+            <img
+              src="https://cdn.nba.com/headshots/nba/latest/1040x760/893.png"
+              alt="Michael Jordan, Chicago Bulls, uniforme vermelho"
+              loading="lazy"
+            />
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div class="player-info">
+              <p class="player-nickname">The G.O.A.T</p>
+              <h3 class="player-name">MICHAEL<br>JORDAN</h3>
+              <div class="player-stats">
+                <div class="player-stat">
+                  <p class="player-stat-num">30.1</p>
+                  <p class="player-stat-label">Pts/Jogo</p>
                 </div>
-
-            </div>
-
-        </section>
-
-        <!-- HISTÓRIA -->
-        <section id="historia" class="max-w-7xl mx-auto px-6 py-24">
-
-            <header class="flex items-center mb-12">
-
-                <h2 class="text-4xl title-font text-orange-500 mr-4">
-                    A Origem do Basquete
-                </h2>
-
-                <div class="h-1 flex-grow bg-neutral-800 rounded-full"></div>
-
-            </header>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-
-                <article class="space-y-6">
-
-                    <h3 class="text-2xl font-bold">
-                        Dezembro de 1891
-                    </h3>
-
-                    <p class="text-gray-300 text-lg leading-relaxed text-justify">
-
-                        O basquete foi criado pelo professor canadense
-                        <strong class="text-orange-400">
-                            James Naismith
-                        </strong>
-                        em Springfield, Massachusetts.
-
-                    </p>
-
-                    <p class="text-gray-300 text-lg leading-relaxed text-justify">
-
-                        O objetivo era desenvolver um esporte indoor para manter os alunos ativos durante o inverno.
-
-                    </p>
-
-                </article>
-
-                <figure
-                    class="relative overflow-hidden rounded-2xl border border-white/10">
-
-                    <img
-                        src="https://www.thedailyscrumnews.com/james-naismith-canadian-roots-american-citizenship-so-was-basketball-invented-by-an-american/"
-                        alt="James Naismith, criador do basquete"
-                        class="w-full object-cover hover:scale-105 duration-500">
-
-                    <figcaption
-                        class="absolute bottom-0 left-0 w-full bg-black/70 p-4 text-white">
-
-                        James Naismith — Criador do Basquete
-
-                    </figcaption>
-
-                </figure>
-
-            </div>
-
-        </section>
-
-        <!-- REGRAS -->
-        <section id="regras"
-            class="bg-neutral-900/50 py-24 px-6 border-y border-white/5">
-
-            <div class="max-w-7xl mx-auto">
-
-                <header class="mb-16">
-
-                    <h2 class="text-4xl title-font text-orange-500">
-                        Regras Essenciais
-                    </h2>
-
-                </header>
-
-                <div class="grid md:grid-cols-3 gap-8">
-
-                    <article
-                        class="bg-neutral-900 rounded-3xl p-8 border border-white/10">
-
-                        <h3 class="text-2xl font-bold mb-4">
-                            ⏱️ Cronômetro
-                        </h3>
-
-                        <p class="text-gray-300">
-                            NBA: 48 minutos
-                        </p>
-
-                        <p class="text-gray-300">
-                            FIBA: 40 minutos
-                        </p>
-
-                        <p class="text-orange-400 font-bold">
-                            Ataque: 24 segundos
-                        </p>
-
-                    </article>
-
-                    <article
-                        class="bg-neutral-900 rounded-3xl p-8 border border-white/10">
-
-                        <h3 class="text-2xl font-bold mb-4">
-                            🏀 Pontuação
-                        </h3>
-
-                        <ul class="space-y-3 text-gray-300">
-
-                            <li>1 ponto — Lance livre</li>
-                            <li>2 pontos — Dentro do garrafão</li>
-                            <li>3 pontos — Fora da linha</li>
-
-                        </ul>
-
-                    </article>
-
-                    <article
-                        class="bg-neutral-900 rounded-3xl p-8 border border-white/10">
-
-                        <h3 class="text-2xl font-bold mb-4">
-                            ⚠️ Infrações
-                        </h3>
-
-                        <p class="text-gray-300">
-                            Faltas excessivas causam expulsão.
-                        </p>
-
-                        <p class="text-gray-300 mt-2">
-                            NBA: 6 faltas
-                        </p>
-
-                        <p class="text-gray-300">
-                            FIBA: 5 faltas
-                        </p>
-
-                    </article>
-
+                <div class="player-divider"></div>
+                <div class="player-stat">
+                  <p class="player-stat-num">6.2</p>
+                  <p class="player-stat-label">Reb/Jogo</p>
                 </div>
-
+                <div class="player-divider"></div>
+                <div class="player-stat">
+                  <p class="player-stat-num"><span class="star">6×</span></p>
+                  <p class="player-stat-label">Títulos</p>
+                </div>
+              </div>
             </div>
+          </article>
 
-        </section>
-
-        <!-- LENDAS -->
-        <section id="jogadores" class="max-w-7xl mx-auto px-6 py-24">
-
-            <header class="flex items-center mb-12">
-
-                <h2 class="text-4xl title-font text-orange-500 mr-4">
-                    Lendas da NBA
-                </h2>
-
-                <div class="h-1 flex-grow bg-neutral-800 rounded-full"></div>
-
-            </header>
-
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- MICHAEL JORDAN -->
-                <article
-                    class="bg-neutral-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl hover:-translate-y-3 duration-300">
-
-                    <figure class="relative">
-
-                        <img
-                            src="https://cdn.nba.com/headshots/nba/latest/1040x760/893.png"
-                            alt="Michael Jordan usando uniforme do Chicago Bulls"
-                            class="w-full h-80 object-cover">
-
-                        <figcaption
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6">
-
-                            <h3 class="text-3xl text-white title-font">
-                                MICHAEL JORDAN
-                            </h3>
-
-                            <p class="text-orange-500 font-semibold">
-                                THE G.O.A.T
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                    <div class="p-6">
-
-                        <div class="grid grid-cols-3 gap-4 text-center mb-6">
-
-                            <div>
-                                <p class="text-2xl font-bold text-white">30.1</p>
-                                <p class="text-xs text-gray-400">PTS/J</p>
-                            </div>
-
-                            <div>
-                                <p class="text-2xl font-bold text-white">6.2</p>
-                                <p class="text-xs text-gray-400">REB/J</p>
-                            </div>
-
-                            <div>
-                                <p class="text-2xl font-bold text-orange-500">6x</p>
-                                <p class="text-xs text-gray-400">NBA</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <!-- LEBRON -->
-                <article
-                    class="bg-neutral-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl hover:-translate-y-3 duration-300">
-
-                    <figure class="relative">
-
-                        <img
-                            src="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"
-                            alt="LeBron James jogando pelo Los Angeles Lakers"
-                            class="w-full h-80 object-cover">
-
-                        <figcaption
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6">
-
-                            <h3 class="text-3xl text-white title-font">
-                                LEBRON JAMES
-                            </h3>
-
-                            <p class="text-orange-500 font-semibold">
-                                THE KING
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                    <div class="p-6">
-
-                        <div class="grid grid-cols-3 gap-4 text-center mb-6">
-
-                            <div>
-                                <p class="text-2xl font-bold text-white">27.1</p>
-                                <p class="text-xs text-gray-400">PTS/J</p>
-                            </div>
-
-                            <div>
-                                <p class="text-2xl font-bold text-white">7.5</p>
-                                <p class="text-xs text-gray-400">REB/J</p>
-                            </div>
-
-                            <div>
-                                <p class="text-2xl font-bold text-orange-500">4x</p>
-                                <p class="text-xs text-gray-400">NBA</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <!-- KOBE -->
-                <article
-                    class="bg-neutral-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl hover:-translate-y-3 duration-300">
-
-                    <figure class="relative">
-
-                        <img
-                            src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png"
-                            alt="Kobe Bryant em partida pelo Los Angeles Lakers"
-                            class="w-full h-80 object-cover">
-
-                        <figcaption
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6">
-
-                            <h3 class="text-3xl text-white title-font">
-                                KOBE BRYANT
-                            </h3>
-
-                            <p class="text-orange-500 font-semibold">
-                                BLACK MAMBA
-                            </p>
-
-                        </figcaption>
-
-                    </figure>
-
-                    <div class="p-6">
-
-                        <div class="grid grid-cols-3 gap-4 text-center mb-6">
-
-                            <div>
-                                <p class="text-2xl font-bold text-white">25.0</p>
-                                <p class="text-xs text-gray-400">PTS/J</p>
-                            </div>
-
-                            <div>
-                                <p class="text-2xl font-bold text-white">5.2</p>
-                                <p class="text-xs text-gray-400">REB/J</p>
-                            </div>
-
-                            <div>
-                                <p class="text-2xl font-bold text-orange-500">5x</p>
-                                <p class="text-xs text-gray-400">NBA</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
+          <!-- LEBRON -->
+          <article class="player-card reveal reveal-delay-2" tabindex="0" aria-label="LeBron James, The King">
+            <span class="player-number" aria-hidden="true">6</span>
+            <img
+              src="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png"
+              alt="LeBron James, Los Angeles Lakers, uniforme roxo"
+              loading="lazy"
+            />
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div class="player-info">
+              <p class="player-nickname">The King</p>
+              <h3 class="player-name">LEBRON<br>JAMES</h3>
+              <div class="player-stats">
+                <div class="player-stat">
+                  <p class="player-stat-num">27.1</p>
+                  <p class="player-stat-label">Pts/Jogo</p>
+                </div>
+                <div class="player-divider"></div>
+                <div class="player-stat">
+                  <p class="player-stat-num">7.5</p>
+                  <p class="player-stat-label">Reb/Jogo</p>
+                </div>
+                <div class="player-divider"></div>
+                <div class="player-stat">
+                  <p class="player-stat-num"><span class="star">4×</span></p>
+                  <p class="player-stat-label">Títulos</p>
+                </div>
+              </div>
             </div>
+          </article>
 
-        </section>
+          <!-- KOBE -->
+          <article class="player-card reveal reveal-delay-3" tabindex="0" aria-label="Kobe Bryant, Black Mamba">
+            <span class="player-number" aria-hidden="true">24</span>
+            <img
+              src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png"
+              alt="Kobe Bryant, Los Angeles Lakers, uniforme dourado"
+              loading="lazy"
+            />
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div class="player-info">
+              <p class="player-nickname">Black Mamba</p>
+              <h3 class="player-name">KOBE<br>BRYANT</h3>
+              <div class="player-stats">
+                <div class="player-stat">
+                  <p class="player-stat-num">25.0</p>
+                  <p class="player-stat-label">Pts/Jogo</p>
+                </div>
+                <div class="player-divider"></div>
+                <div class="player-stat">
+                  <p class="player-stat-num">5.2</p>
+                  <p class="player-stat-label">Reb/Jogo</p>
+                </div>
+                <div class="player-divider"></div>
+                <div class="player-stat">
+                  <p class="player-stat-num"><span class="star">5×</span></p>
+                  <p class="player-stat-label">Títulos</p>
+                </div>
+              </div>
+            </div>
+          </article>
 
-    </main>
+        </div>
+      </div>
+    </section>
 
-   <!-- FOOTER -->
-<footer
-class="bg-neutral-900 py-6 text-center text-gray-500 text-sm border-t border-white/5">
+  </main>
 
-<p>
-    © 2026 Projeto desenvolvido por
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-brand">🏀 <span>NBA</span> GL</div>
+    <div style="text-align:right;">
+      <p class="footer-text">
+        © 2026 Desenvolvido por
+        <a href="https://github.com/GlCarvalho07" target="_blank" rel="noopener noreferrer" class="footer-link">
+          Guilherme Carvalho
+        </a>
+      </p>
+      <p class="footer-note">Este projeto utilizou Inteligência Artificial como auxílio no desenvolvimento.</p>
+    </div>
+  </footer>
 
-    <a href="https://github.com/GlCarvalho07"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-orange-500 font-semibold hover:text-orange-400 transition">
+  <!-- VLibras Script -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
 
-        Guilherme Carvalho
-    </a>
+    // Header scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-    — Todos os direitos reservados.
-</p>
-
-<p class="mt-2 text-gray-400 text-xs">
-    Este projeto utilizou Inteligência Artificial como auxílio no desenvolvimento da atividade.
-</p>
-
-</footer>
-
-    <!-- SCRIPT -->
-    <script>
-
-        function toggleContrast() {
-
-            const body = document.body;
-
-            body.classList.toggle('high-contrast');
-
-            const btn = document.getElementById('btn-contrast');
-
-            if (body.classList.contains('high-contrast')) {
-
-                btn.innerHTML = '⚪ Desativar Contraste';
-
-            } else {
-
-                btn.innerHTML = '👁️ Alto Contraste';
-            }
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
         }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
 
-    </script>
-
-    <!-- VLibras Script -->
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-
+    // High contrast
+    function toggleContrast() {
+      const body = document.body;
+      body.classList.toggle('high-contrast');
+      const btn = document.getElementById('btn-contrast');
+      btn.textContent = body.classList.contains('high-contrast')
+        ? '⚪ Desativar'
+        : '👁 Contraste';
+    }
+  </script>
 </body>
-
 </html>
