@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conheça a história do basquete, regras oficiais, jogadores lendários e acompanhe resultados atualizados da NBA.">
+  <meta name="author" content="Guilherme Carvalho">
+  <title>BASQUETE — História, Regras e Lendas da NBA</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+ 
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+  </div>
+ 
+  <header id="site-header" role="banner">
+    <div class="logo">🏀 <span>NBA</span> GL</div>
+    <div class="header-right">
+      <nav aria-label="Menu principal">
+        <ul>
+          <li><a href="#historia">História</a></li>
+          <li><a href="#timeline">Linha do Tempo</a></li>
+          <li><a href="#regras">Regras</a></li>
+          <li><a href="#simulador">Simulador</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#jogadores">Lendas</a></li>
+        </ul>
+      </nav>
+      <button id="btn-contrast" class="btn-contrast" onclick="toggleContrast()" aria-label="Ativar modo alto contraste">
+        👁 Contraste
+      </button>
+    </div>
+  </header>
+ 
+  <main id="conteudo-principal">
+ 
+    <!-- HERO -->
+    <section class="hero" aria-label="Banner principal">
+      <div class="hero-bg" role="img" aria-label="Quadra de basquete iluminada"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Temporada 2025–2026</p>
+        <h1 class="hero-title">O ESPORTE<br>DAS <span class="accent">LENDAS</span></h1>
+        <p class="hero-subtitle">História, regras e os maiores nomes que já tocaram uma bola de basquete.</p>
+        <a href="#historia" class="hero-cta" aria-label="Explorar o conteúdo">Explorar ↓</a>
+      </div>
+      <div class="hero-stats" aria-label="Estatísticas rápidas">
+        <div><p class="hero-stat-num">30</p><p class="hero-stat-label">Franquias NBA</p></div>
+      </div>
+    </section>
+ 
+    <!-- TICKER -->
+    <div class="ticker-wrap" role="marquee" aria-label="Resultados recentes">
+      <div class="ticker-track">
+        <span class="ticker-item"><span class="ticker-team">BOS</span><span class="ticker-score">112</span><span class="ticker-sep">vs</span><span class="ticker-team">PHI</span><span class="ticker-score">105</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">LAL</span><span class="ticker-score">108</span><span class="ticker-sep">vs</span><span class="ticker-team">GSW</span><span class="ticker-score">121</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">DEN</span><span class="ticker-score">132</span><span class="ticker-sep">vs</span><span class="ticker-team">PHX</span><span class="ticker-score">127</span><span class="ticker-status">2OT</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">MIL</span><span class="ticker-score">98</span><span class="ticker-sep">vs</span><span class="ticker-team">MIA</span><span class="ticker-score">102</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">NYK</span><span class="ticker-score">118</span><span class="ticker-sep">vs</span><span class="ticker-team">CHI</span><span class="ticker-score">109</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">BOS</span><span class="ticker-score">112</span><span class="ticker-sep">vs</span><span class="ticker-team">PHI</span><span class="ticker-score">105</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">LAL</span><span class="ticker-score">108</span><span class="ticker-sep">vs</span><span class="ticker-team">GSW</span><span class="ticker-score">121</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">DEN</span><span class="ticker-score">132</span><span class="ticker-sep">vs</span><span class="ticker-team">PHX</span><span class="ticker-score">127</span><span class="ticker-status">2OT</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">MIL</span><span class="ticker-score">98</span><span class="ticker-sep">vs</span><span class="ticker-team">MIA</span><span class="ticker-score">102</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+        <span class="ticker-item"><span class="ticker-team">NYK</span><span class="ticker-score">118</span><span class="ticker-sep">vs</span><span class="ticker-team">CHI</span><span class="ticker-score">109</span><span class="ticker-status">FINAL</span></span>
+        <span class="ticker-dot">●</span>
+      </div>
+    </div>
+ 
+    <!-- HISTÓRIA -->
+    <section id="historia" aria-labelledby="titulo-historia">
+      <div class="historia-inner">
+        <div class="reveal">
+          <p class="section-label">Origem</p>
+          <h2 id="titulo-historia" class="section-title">A Invenção<br>do Basquete</h2>
+        </div>
+        <div class="historia-grid">
+          <article class="historia-text reveal reveal-delay-1">
+            <h3>Dezembro de 1891</h3>
+            <p>O basquete nasceu da necessidade. O professor canadense <strong>James Naismith</strong> precisava de uma atividade para manter seus alunos ativos durante o rigoroso inverno de Springfield, Massachusetts.</p>
+            <p>Com uma bola de futebol e dois cestos de pêssego presos às galerias, Naismith criou as primeiras 13 regras do jogo — muitas ainda aplicadas hoje.</p>
+            <div class="historia-quote">
+              <p>"O objetivo era criar um esporte que exigisse habilidade, não força bruta."</p>
+              <cite>— James Naismith, 1891</cite>
+            </div>
+            <p>De Springfield para o mundo inteiro: hoje o basquete é praticado por mais de <strong>450 milhões de pessoas</strong> em mais de 200 países.</p>
+          </article>
+          <figure class="historia-img-wrap reveal reveal-delay-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/James_Naismith.jpg/800px-James_Naismith.jpg" alt="James Naismith, inventor do basquete, segurando uma bola e uma cesta" class="historia-img"/>
+            <div class="historia-img-caption"><p>James Naismith — Springfield, 1891</p></div>
+          </figure>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- LINHA DO TEMPO INTERATIVA -->
+    <section id="timeline" aria-labelledby="titulo-timeline">
+      <div class="timeline-inner">
+        <div class="reveal">
+          <p class="section-label">Marcos Históricos</p>
+          <h2 id="titulo-timeline" class="section-title">Linha do<br>Tempo <span style="color:var(--orange)">NBA</span></h2>
+        </div>
+        <div class="timeline-track reveal reveal-delay-1" role="list">
+          <div class="timeline-line"></div>
+          <!-- items inserted by JS -->
+        </div>
+      </div>
+    </section>
+ 
+    <!-- REGRAS -->
+    <section id="regras" aria-labelledby="titulo-regras">
+      <div class="regras-inner">
+        <div class="reveal">
+          <p class="section-label">Regras Oficiais</p>
+          <h2 id="titulo-regras" class="section-title">O Essencial<br>do Jogo</h2>
+        </div>
+        <div class="regras-grid">
+          <article class="regra-card reveal reveal-delay-1" tabindex="0">
+            <span class="regra-icon" aria-hidden="true">⏱</span>
+            <h3>Cronômetro</h3>
+            <div class="regra-item"><span class="regra-label">NBA — Duração</span><span class="regra-value">48 MIN</span></div>
+            <div class="regra-item"><span class="regra-label">FIBA — Duração</span><span class="regra-value">40 MIN</span></div>
+            <div class="regra-item"><span class="regra-label">Tempo de ataque</span><span class="regra-value">24 SEG</span></div>
+          </article>
+          <article class="regra-card reveal reveal-delay-2" tabindex="0">
+            <span class="regra-icon" aria-hidden="true">🏀</span>
+            <h3>Pontuação</h3>
+            <div class="regra-item"><span class="regra-label">Lance livre</span><span class="regra-value">1 PT</span></div>
+            <div class="regra-item"><span class="regra-label">Dentro do garrafão</span><span class="regra-value">2 PTS</span></div>
+            <div class="regra-item"><span class="regra-label">Linha de 3 pontos</span><span class="regra-value">3 PTS</span></div>
+          </article>
+          <article class="regra-card reveal reveal-delay-3" tabindex="0">
+            <span class="regra-icon" aria-hidden="true">⚠️</span>
+            <h3>Faltas</h3>
+            <div class="regra-item"><span class="regra-label">NBA — Limite</span><span class="regra-value">6 FALTAS</span></div>
+            <div class="regra-item"><span class="regra-label">FIBA — Limite</span><span class="regra-value">5 FALTAS</span></div>
+            <div class="regra-item"><span class="regra-label">Após limite</span><span class="regra-value">EXPULSÃO</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- SIMULADOR DE PONTUAÇÃO -->
+    <section id="simulador" aria-labelledby="titulo-simulador">
+      <div class="simulador-inner">
+        <div class="reveal">
+          <p class="section-label">Interativo <span class="new-badge">NOVO</span></p>
+          <h2 id="titulo-simulador" class="section-title">Simulador<br>de Jogo</h2>
+        </div>
+        <div class="simulador-grid reveal reveal-delay-1">
+          <!-- Time A -->
+          <div class="sim-team team-a">
+            <p class="sim-team-city">TIME DA CASA</p>
+            <p class="sim-team-name" id="nameA">BULLS</p>
+            <p class="sim-score-display" id="scoreA">0</p>
+            <div class="sim-buttons">
+              <button class="sim-btn" onclick="addPoints('A', 1)">
+                <span class="sim-btn-label">Lance Livre</span>
+                <span class="sim-btn-pts">+1</span>
+              </button>
+              <button class="sim-btn" onclick="addPoints('A', 2)">
+                <span class="sim-btn-label">Bandeja / Arremesso</span>
+                <span class="sim-btn-pts">+2</span>
+              </button>
+              <button class="sim-btn" onclick="addPoints('A', 3)">
+                <span class="sim-btn-label">3 Pontos 🔥</span>
+                <span class="sim-btn-pts">+3</span>
+              </button>
+              <button class="sim-btn-undo" onclick="undo('A')">↩ Desfazer último</button>
+            </div>
+          </div>
+ 
+          <!-- Time B -->
+          <div class="sim-team team-b">
+            <p class="sim-team-city">TIME VISITANTE</p>
+            <p class="sim-team-name" id="nameB">LAKERS</p>
+            <p class="sim-score-display" id="scoreB">0</p>
+            <div class="sim-buttons">
+              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 1)">
+                <span class="sim-btn-label">Lance Livre</span>
+                <span class="sim-btn-pts" style="color:#4A90D9">+1</span>
+              </button>
+              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 2)">
+                <span class="sim-btn-label">Bandeja / Arremesso</span>
+                <span class="sim-btn-pts" style="color:#4A90D9">+2</span>
+              </button>
+              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 3)">
+                <span class="sim-btn-label">3 Pontos 🔥</span>
+                <span class="sim-btn-pts" style="color:#4A90D9">+3</span>
+              </button>
+              <button class="sim-btn-undo" onclick="undo('B')">↩ Desfazer último</button>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="sim-controls reveal reveal-delay-2">
+          <p class="sim-quarter-display" id="quarterDisplay">1º QUARTO</p>
+          <button class="sim-reset" onclick="nextQuarter()">Próximo Quarto →</button>
+          <button class="sim-reset" onclick="resetGame()" style="margin-top:8px">↺ Reiniciar Jogo</button>
+        </div>
+ 
+        <div class="sim-history reveal reveal-delay-3">
+          <h4>Histórico de Pontos</h4>
+          <div id="historyList"><p style="font-size:14px;color:var(--gray)">Nenhum ponto marcado ainda.</p></div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- QUIZ -->
+    <section id="quiz" aria-labelledby="titulo-quiz">
+      <div class="quiz-inner">
+        <div class="reveal">
+          <p class="section-label">Teste seu Conhecimento <span class="new-badge">NOVO</span></p>
+          <h2 id="titulo-quiz" class="section-title">Quiz<br>NBA</h2>
+        </div>
+ 
+        <div id="quizContainer" class="reveal reveal-delay-1">
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgress" style="width:0%"></div></div>
+          <p class="quiz-question-num" id="quizNum">Pergunta 1 de 7</p>
+          <p class="quiz-question-text" id="quizQuestion">Carregando...</p>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+          <div class="quiz-nav">
+            <span class="quiz-score-text" id="quizScoreText">Pontuação: 0</span>
+            <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Próxima →</button>
+          </div>
+        </div>
+ 
+        <div class="quiz-result" id="quizResult">
+          <div class="quiz-result-emoji" id="resultEmoji">🏆</div>
+          <h3 class="quiz-result-title" id="resultTitle">INCRÍVEL!</h3>
+          <p class="quiz-result-sub" id="resultSub">Você é um verdadeiro especialista em NBA!</p>
+          <p class="quiz-result-score" id="resultScore">7/7</p>
+          <button class="quiz-restart" onclick="restartQuiz()">Jogar Novamente</button>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- COMPARADOR DE JOGADORES -->
+    <section id="comparador" aria-labelledby="titulo-comparador">
+      <div class="comparador-inner">
+        <div class="reveal">
+          <p class="section-label">Análise <span class="new-badge">NOVO</span></p>
+          <h2 id="titulo-comparador" class="section-title">Compare<br>Lendas</h2>
+        </div>
+        <div class="comparador-selects reveal reveal-delay-1">
+          <select class="player-select" id="playerA" onchange="updateComparison()">
+            <option value="jordan">Michael Jordan</option>
+            <option value="lebron">LeBron James</option>
+            <option value="kobe">Kobe Bryant</option>
+            <option value="magic">Magic Johnson</option>
+            <option value="bird">Larry Bird</option>
+            <option value="shaq">Shaquille O'Neal</option>
+          </select>
+          <div class="vs-badge">VS</div>
+          <select class="player-select" id="playerB" onchange="updateComparison()">
+            <option value="jordan">Michael Jordan</option>
+            <option value="lebron" selected>LeBron James</option>
+            <option value="kobe">Kobe Bryant</option>
+            <option value="magic">Magic Johnson</option>
+            <option value="bird">Larry Bird</option>
+            <option value="shaq">Shaquille O'Neal</option>
+          </select>
+        </div>
+ 
+        <div class="comparador-stats reveal reveal-delay-2" id="comparadorStats"></div>
+      </div>
+    </section>
+ 
+    <!-- JOGADORES -->
+    <section id="jogadores" aria-labelledby="titulo-jogadores">
+      <div class="jogadores-inner">
+        <div class="reveal">
+          <p class="section-label">Hall da Fama</p>
+          <h2 id="titulo-jogadores" class="section-title">Lendas<br>Imortais</h2>
+        </div>
+        <div class="players-grid">
+          <article class="player-card reveal reveal-delay-1" tabindex="0" aria-label="Michael Jordan, The G.O.A.T">
+            <span class="player-number" aria-hidden="true">23</span>
+            <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/893.png" alt="Michael Jordan" loading="lazy"/>
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div class="player-info">
+              <p class="player-nickname">The G.O.A.T</p>
+              <h3 class="player-name">MICHAEL<br>JORDAN</h3>
+              <div class="player-stats">
+                <div class="player-stat"><p class="player-stat-num">30.1</p><p class="player-stat-label">Pts/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num">6.2</p><p class="player-stat-label">Reb/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num"><span class="star">6×</span></p><p class="player-stat-label">Títulos</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="player-card reveal reveal-delay-2" tabindex="0" aria-label="LeBron James, The King">
+            <span class="player-number" aria-hidden="true">6</span>
+            <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png" alt="LeBron James" loading="lazy"/>
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div class="player-info">
+              <p class="player-nickname">The King</p>
+              <h3 class="player-name">LEBRON<br>JAMES</h3>
+              <div class="player-stats">
+                <div class="player-stat"><p class="player-stat-num">27.1</p><p class="player-stat-label">Pts/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num">7.5</p><p class="player-stat-label">Reb/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num"><span class="star">4×</span></p><p class="player-stat-label">Títulos</p></div>
+              </div>
+            </div>
+          </article>
+          <article class="player-card reveal reveal-delay-3" tabindex="0" aria-label="Kobe Bryant, Black Mamba">
+            <span class="player-number" aria-hidden="true">24</span>
+            <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/977.png" alt="Kobe Bryant" loading="lazy"/>
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div style="position:absolute;top:16px;left:16px;z-index:4;background:rgba(0,0,0,0.7);border:1px solid rgba(255,107,0,0.4);border-radius:4px;padding:4px 10px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:600;">✦ In Memoriam</div>
+            <div class="player-info">
+              <p class="player-nickname">Black Mamba</p>
+              <h3 class="player-name">KOBE<br>BRYANT</h3>
+              <div class="player-stats">
+                <div class="player-stat"><p class="player-stat-num">25.0</p><p class="player-stat-label">Pts/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num">5.2</p><p class="player-stat-label">Reb/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num"><span class="star">5×</span></p><p class="player-stat-label">Títulos</p></div>
+              </div>
+            </div>
+          </article>
+ 
+          <!-- OSCAR SCHMIDT -->
+          <article class="player-card reveal reveal-delay-3" tabindex="0" aria-label="Oscar Schmidt, Mão Santa">
+            <span class="player-number" aria-hidden="true">14</span>
+ 
+            <!-- Illustrated SVG portrait — always visible as background, photo loads on top -->
+            <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+              <svg viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+                <defs>
+                  <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0a1f0a"/>
+                    <stop offset="100%" stop-color="#0a0a0a"/>
+                  </linearGradient>
+                  <radialGradient id="glow" cx="50%" cy="35%" r="50%">
+                    <stop offset="0%" stop-color="#00AA44" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#0a1f0a" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="jersey" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#009C3B"/>
+                    <stop offset="100%" stop-color="#006622"/>
+                  </linearGradient>
+                </defs>
+                <!-- Background -->
+                <rect width="400" height="530" fill="url(#bgGrad)"/>
+                <rect width="400" height="530" fill="url(#glow)"/>
+                <!-- Subtle court lines -->
+                <ellipse cx="200" cy="430" rx="180" ry="40" fill="none" stroke="rgba(0,180,60,0.08)" stroke-width="2"/>
+                <line x1="200" y1="390" x2="200" y2="530" stroke="rgba(0,180,60,0.06)" stroke-width="1.5"/>
+                <!-- Silhouette body -->
+                <ellipse cx="200" cy="155" rx="52" ry="52" fill="#1a3a1a"/>
+                <!-- Head -->
+                <ellipse cx="200" cy="148" rx="38" ry="42" fill="#c8956a"/>
+                <!-- Neck -->
+                <rect x="185" y="185" width="30" height="22" rx="6" fill="#c8956a"/>
+                <!-- Jersey green Brazil -->
+                <path d="M120,205 Q150,195 200,200 Q250,195 280,205 L295,340 Q200,360 105,340 Z" fill="url(#jersey)"/>
+                <!-- Jersey yellow stripe -->
+                <path d="M130,215 Q200,230 270,215 L275,235 Q200,252 125,235 Z" fill="#FFDF00" opacity="0.9"/>
+                <!-- Number 14 on jersey -->
+                <text x="200" y="295" text-anchor="middle" font-family="'Arial Black',sans-serif" font-size="52" font-weight="900" fill="white" opacity="0.9">14</text>
+                <!-- Arms -->
+                <path d="M120,210 Q90,260 95,310" stroke="#c8956a" stroke-width="28" stroke-linecap="round" fill="none"/>
+                <path d="M280,210 Q310,260 305,310" stroke="#c8956a" stroke-width="28" stroke-linecap="round" fill="none"/>
+                <!-- Basketball in right hand -->
+                <circle cx="305" cy="318" r="28" fill="#FF6B00"/>
+                <path d="M279,312 Q305,300 333,312" stroke="#8B3A0A" stroke-width="2" fill="none"/>
+                <path d="M289,295 Q305,320 321,345" stroke="#8B3A0A" stroke-width="2" fill="none"/>
+                <path d="M281,325 Q305,336 329,325" stroke="#8B3A0A" stroke-width="2" fill="none"/>
+                <!-- Shorts -->
+                <path d="M130,340 Q200,360 270,340 L265,430 L200,445 L135,430 Z" fill="#006622"/>
+                <!-- Legs -->
+                <rect x="148" y="430" width="42" height="70" rx="18" fill="#c8956a"/>
+                <rect x="210" y="430" width="42" height="70" rx="18" fill="#c8956a"/>
+                <!-- Shoes -->
+                <ellipse cx="169" cy="498" rx="32" ry="14" fill="#222"/>
+                <ellipse cx="231" cy="498" rx="32" ry="14" fill="#222"/>
+                <!-- Brazil flag detail on jersey -->
+                <text x="200" y="238" text-anchor="middle" font-size="14" fill="#FFDF00" font-weight="bold" opacity="0.6">BRASIL</text>
+              </svg>
+            </div>
+ 
+            <div class="player-overlay" aria-hidden="true"></div>
+            <div style="position:absolute;top:16px;left:16px;z-index:4;background:rgba(0,0,0,0.7);border:1px solid rgba(255,107,0,0.4);border-radius:4px;padding:4px 10px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:600;">✦ In Memoriam</div>
+            <div class="player-info">
+              <p class="player-nickname">🇧🇷 Mão Santa</p>
+              <h3 class="player-name">OSCAR<br>SCHMIDT</h3>
+              <div class="player-stats">
+                <div class="player-stat"><p class="player-stat-num">32.6</p><p class="player-stat-label">Pts/Jogo</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num"><span class="star">5×</span></p><p class="player-stat-label">Olímpíadas</p></div>
+                <div class="player-divider"></div>
+                <div class="player-stat"><p class="player-stat-num"><span class="star">49k</span></p><p class="player-stat-label">Pontos Carreira</p></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+ 
+  </main>
+ 
+  <footer role="contentinfo">
+    <div class="footer-brand">🏀 <span>NBA</span> GL</div>
+    <div style="text-align:right;">
+      <p class="footer-text">© 2026 Desenvolvido por <a href="https://github.com/GlCarvalho07" target="_blank" rel="noopener noreferrer" class="footer-link">Guilherme Carvalho</a></p>
+      <p class="footer-note">Este projeto utilizou Inteligência Artificial como auxílio no desenvolvimento.</p>
+    </div>
+  </footer>
+ 
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+ 
