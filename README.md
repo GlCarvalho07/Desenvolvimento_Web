@@ -56,17 +56,6 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
 - **VLibras** — plugin de acessibilidade do governo brasileiro
 ---
  
-## ▶️ Como Usar
- 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/GlCarvalho07/nome-do-repo.git
-   ```
-2. Abra o arquivo `basquete.html` diretamente no navegador — não requer servidor ou instalação.
-> ⚠️ Os três arquivos (`basquete.html`, `style.css` e `main.js`) precisam estar na **mesma pasta** para o site funcionar corretamente.
- 
----
- 
 ## 📁 Detalhes dos Arquivos
  
 ### `basquete.html`
