@@ -26,7 +26,7 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
 ### 📜 Conteúdo Estático
 - **Hero** com imagem de fundo e animação de entrada
 - **Ticker** animado com resultados de partidas recentes
-- **História** do basquete com foto de James Naismith e citação histórica
+- **História** do basquete e citação histórica
 - **Regras oficiais** em cards comparativos NBA × FIBA
 - **Lendas Imortais** com cards de Michael Jordan, LeBron James, Kobe Bryant e Oscar Schmidt
 ### ⚡ Seções Interativas
