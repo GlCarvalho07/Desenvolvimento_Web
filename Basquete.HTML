@@ -109,18 +109,9 @@
       </div>
     </section>
  
-    <!-- LINHA DO TEMPO INTERATIVA -->
+    <!-- LINHA DO TEMPO — React -->
     <section id="timeline" aria-labelledby="titulo-timeline">
-      <div class="timeline-inner">
-        <div class="reveal">
-          <p class="section-label">Marcos Históricos</p>
-          <h2 id="titulo-timeline" class="section-title">Linha do<br>Tempo <span style="color:var(--orange)">NBA</span></h2>
-        </div>
-        <div class="timeline-track reveal reveal-delay-1" role="list">
-          <div class="timeline-line"></div>
-          <!-- items inserted by JS -->
-        </div>
-      </div>
+      <div id="react-timeline"></div>
     </section>
  
     <!-- REGRAS -->
@@ -164,57 +155,34 @@
           <h2 id="titulo-simulador" class="section-title">Simulador<br>de Jogo</h2>
         </div>
         <div class="simulador-grid reveal reveal-delay-1">
-          <!-- Time A -->
           <div class="sim-team team-a">
             <p class="sim-team-city">TIME DA CASA</p>
             <p class="sim-team-name" id="nameA">BULLS</p>
             <p class="sim-score-display" id="scoreA">0</p>
             <div class="sim-buttons">
-              <button class="sim-btn" onclick="addPoints('A', 1)">
-                <span class="sim-btn-label">Lance Livre</span>
-                <span class="sim-btn-pts">+1</span>
-              </button>
-              <button class="sim-btn" onclick="addPoints('A', 2)">
-                <span class="sim-btn-label">Bandeja / Arremesso</span>
-                <span class="sim-btn-pts">+2</span>
-              </button>
-              <button class="sim-btn" onclick="addPoints('A', 3)">
-                <span class="sim-btn-label">3 Pontos 🔥</span>
-                <span class="sim-btn-pts">+3</span>
-              </button>
+              <button class="sim-btn" onclick="addPoints('A', 1)"><span class="sim-btn-label">Lance Livre</span><span class="sim-btn-pts">+1</span></button>
+              <button class="sim-btn" onclick="addPoints('A', 2)"><span class="sim-btn-label">Bandeja / Arremesso</span><span class="sim-btn-pts">+2</span></button>
+              <button class="sim-btn" onclick="addPoints('A', 3)"><span class="sim-btn-label">3 Pontos 🔥</span><span class="sim-btn-pts">+3</span></button>
               <button class="sim-btn-undo" onclick="undo('A')">↩ Desfazer último</button>
             </div>
           </div>
- 
-          <!-- Time B -->
           <div class="sim-team team-b">
             <p class="sim-team-city">TIME VISITANTE</p>
             <p class="sim-team-name" id="nameB">LAKERS</p>
             <p class="sim-score-display" id="scoreB">0</p>
             <div class="sim-buttons">
-              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 1)">
-                <span class="sim-btn-label">Lance Livre</span>
-                <span class="sim-btn-pts" style="color:#4A90D9">+1</span>
-              </button>
-              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 2)">
-                <span class="sim-btn-label">Bandeja / Arremesso</span>
-                <span class="sim-btn-pts" style="color:#4A90D9">+2</span>
-              </button>
-              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 3)">
-                <span class="sim-btn-label">3 Pontos 🔥</span>
-                <span class="sim-btn-pts" style="color:#4A90D9">+3</span>
-              </button>
+              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 1)"><span class="sim-btn-label">Lance Livre</span><span class="sim-btn-pts" style="color:#4A90D9">+1</span></button>
+              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 2)"><span class="sim-btn-label">Bandeja / Arremesso</span><span class="sim-btn-pts" style="color:#4A90D9">+2</span></button>
+              <button class="sim-btn" style="border-color:rgba(74,144,217,0.3)" onclick="addPoints('B', 3)"><span class="sim-btn-label">3 Pontos 🔥</span><span class="sim-btn-pts" style="color:#4A90D9">+3</span></button>
               <button class="sim-btn-undo" onclick="undo('B')">↩ Desfazer último</button>
             </div>
           </div>
         </div>
- 
         <div class="sim-controls reveal reveal-delay-2">
           <p class="sim-quarter-display" id="quarterDisplay">1º QUARTO</p>
           <button class="sim-reset" onclick="nextQuarter()">Próximo Quarto →</button>
           <button class="sim-reset" onclick="resetGame()" style="margin-top:8px">↺ Reiniciar Jogo</button>
         </div>
- 
         <div class="sim-history reveal reveal-delay-3">
           <h4>Histórico de Pontos</h4>
           <div id="historyList"><p style="font-size:14px;color:var(--gray)">Nenhum ponto marcado ainda.</p></div>
@@ -222,65 +190,16 @@
       </div>
     </section>
  
-    <!-- QUIZ -->
+    <!-- =============================================
+         QUIZ — Renderizado com React (auto-contido)
+         ============================================= -->
     <section id="quiz" aria-labelledby="titulo-quiz">
-      <div class="quiz-inner">
-        <div class="reveal">
-          <p class="section-label">Teste seu Conhecimento <span class="new-badge">NOVO</span></p>
-          <h2 id="titulo-quiz" class="section-title">Quiz<br>NBA</h2>
-        </div>
- 
-        <div id="quizContainer" class="reveal reveal-delay-1">
-          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgress" style="width:0%"></div></div>
-          <p class="quiz-question-num" id="quizNum">Pergunta 1 de 7</p>
-          <p class="quiz-question-text" id="quizQuestion">Carregando...</p>
-          <div class="quiz-options" id="quizOptions"></div>
-          <div class="quiz-feedback" id="quizFeedback"></div>
-          <div class="quiz-nav">
-            <span class="quiz-score-text" id="quizScoreText">Pontuação: 0</span>
-            <button class="quiz-next" id="quizNext" onclick="nextQuestion()">Próxima →</button>
-          </div>
-        </div>
- 
-        <div class="quiz-result" id="quizResult">
-          <div class="quiz-result-emoji" id="resultEmoji">🏆</div>
-          <h3 class="quiz-result-title" id="resultTitle">INCRÍVEL!</h3>
-          <p class="quiz-result-sub" id="resultSub">Você é um verdadeiro especialista em NBA!</p>
-          <p class="quiz-result-score" id="resultScore">7/7</p>
-          <button class="quiz-restart" onclick="restartQuiz()">Jogar Novamente</button>
-        </div>
-      </div>
+      <div id="react-quiz"></div>
     </section>
  
-    <!-- COMPARADOR DE JOGADORES -->
+    <!-- COMPARADOR DE JOGADORES — React -->
     <section id="comparador" aria-labelledby="titulo-comparador">
-      <div class="comparador-inner">
-        <div class="reveal">
-          <p class="section-label">Análise <span class="new-badge">NOVO</span></p>
-          <h2 id="titulo-comparador" class="section-title">Compare<br>Lendas</h2>
-        </div>
-        <div class="comparador-selects reveal reveal-delay-1">
-          <select class="player-select" id="playerA" onchange="updateComparison()">
-            <option value="jordan">Michael Jordan</option>
-            <option value="lebron">LeBron James</option>
-            <option value="kobe">Kobe Bryant</option>
-            <option value="magic">Magic Johnson</option>
-            <option value="bird">Larry Bird</option>
-            <option value="shaq">Shaquille O'Neal</option>
-          </select>
-          <div class="vs-badge">VS</div>
-          <select class="player-select" id="playerB" onchange="updateComparison()">
-            <option value="jordan">Michael Jordan</option>
-            <option value="lebron" selected>LeBron James</option>
-            <option value="kobe">Kobe Bryant</option>
-            <option value="magic">Magic Johnson</option>
-            <option value="bird">Larry Bird</option>
-            <option value="shaq">Shaquille O'Neal</option>
-          </select>
-        </div>
- 
-        <div class="comparador-stats reveal reveal-delay-2" id="comparadorStats"></div>
-      </div>
+      <div id="react-comparador"></div>
     </section>
  
     <!-- JOGADORES -->
@@ -340,67 +259,11 @@
               </div>
             </div>
           </article>
- 
-          <!-- OSCAR SCHMIDT -->
           <article class="player-card reveal reveal-delay-3" tabindex="0" aria-label="Oscar Schmidt, Mão Santa">
             <span class="player-number" aria-hidden="true">14</span>
- 
-            <!-- Illustrated SVG portrait — always visible as background, photo loads on top -->
             <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-              <svg viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                <defs>
-                  <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#0a1f0a"/>
-                    <stop offset="100%" stop-color="#0a0a0a"/>
-                  </linearGradient>
-                  <radialGradient id="glow" cx="50%" cy="35%" r="50%">
-                    <stop offset="0%" stop-color="#00AA44" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#0a1f0a" stop-opacity="0"/>
-                  </radialGradient>
-                  <linearGradient id="jersey" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#009C3B"/>
-                    <stop offset="100%" stop-color="#006622"/>
-                  </linearGradient>
-                </defs>
-                <!-- Background -->
-                <rect width="400" height="530" fill="url(#bgGrad)"/>
-                <rect width="400" height="530" fill="url(#glow)"/>
-                <!-- Subtle court lines -->
-                <ellipse cx="200" cy="430" rx="180" ry="40" fill="none" stroke="rgba(0,180,60,0.08)" stroke-width="2"/>
-                <line x1="200" y1="390" x2="200" y2="530" stroke="rgba(0,180,60,0.06)" stroke-width="1.5"/>
-                <!-- Silhouette body -->
-                <ellipse cx="200" cy="155" rx="52" ry="52" fill="#1a3a1a"/>
-                <!-- Head -->
-                <ellipse cx="200" cy="148" rx="38" ry="42" fill="#c8956a"/>
-                <!-- Neck -->
-                <rect x="185" y="185" width="30" height="22" rx="6" fill="#c8956a"/>
-                <!-- Jersey green Brazil -->
-                <path d="M120,205 Q150,195 200,200 Q250,195 280,205 L295,340 Q200,360 105,340 Z" fill="url(#jersey)"/>
-                <!-- Jersey yellow stripe -->
-                <path d="M130,215 Q200,230 270,215 L275,235 Q200,252 125,235 Z" fill="#FFDF00" opacity="0.9"/>
-                <!-- Number 14 on jersey -->
-                <text x="200" y="295" text-anchor="middle" font-family="'Arial Black',sans-serif" font-size="52" font-weight="900" fill="white" opacity="0.9">14</text>
-                <!-- Arms -->
-                <path d="M120,210 Q90,260 95,310" stroke="#c8956a" stroke-width="28" stroke-linecap="round" fill="none"/>
-                <path d="M280,210 Q310,260 305,310" stroke="#c8956a" stroke-width="28" stroke-linecap="round" fill="none"/>
-                <!-- Basketball in right hand -->
-                <circle cx="305" cy="318" r="28" fill="#FF6B00"/>
-                <path d="M279,312 Q305,300 333,312" stroke="#8B3A0A" stroke-width="2" fill="none"/>
-                <path d="M289,295 Q305,320 321,345" stroke="#8B3A0A" stroke-width="2" fill="none"/>
-                <path d="M281,325 Q305,336 329,325" stroke="#8B3A0A" stroke-width="2" fill="none"/>
-                <!-- Shorts -->
-                <path d="M130,340 Q200,360 270,340 L265,430 L200,445 L135,430 Z" fill="#006622"/>
-                <!-- Legs -->
-                <rect x="148" y="430" width="42" height="70" rx="18" fill="#c8956a"/>
-                <rect x="210" y="430" width="42" height="70" rx="18" fill="#c8956a"/>
-                <!-- Shoes -->
-                <ellipse cx="169" cy="498" rx="32" ry="14" fill="#222"/>
-                <ellipse cx="231" cy="498" rx="32" ry="14" fill="#222"/>
-                <!-- Brazil flag detail on jersey -->
-                <text x="200" y="238" text-anchor="middle" font-size="14" fill="#FFDF00" font-weight="bold" opacity="0.6">BRASIL</text>
-              </svg>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/James_Naismith.jpg/800px-James_Naismith.jpg" alt="Oscar Schmidt" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
             </div>
- 
             <div class="player-overlay" aria-hidden="true"></div>
             <div style="position:absolute;top:16px;left:16px;z-index:4;background:rgba(0,0,0,0.7);border:1px solid rgba(255,107,0,0.4);border-radius:4px;padding:4px 10px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:600;">✦ In Memoriam</div>
             <div class="player-info">
@@ -429,8 +292,831 @@
     </div>
   </footer>
  
+  <!-- React + Babel CDN -->
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+ 
+  <!-- ================================================
+       LINHA DO TEMPO — React
+       ================================================ -->
+  <script type="text/babel">
+    const { useState: useStateT, useEffect: useEffectT, useRef: useRefT } = React;
+ 
+    const timelineData = [
+      { year: "1891", title: "A Invenção",        description: "James Naismith cria o basquete em Springfield, Massachusetts, com 13 regras básicas e cestos de pêssego presos à galeria.", icon: "🏀" },
+      { year: "1946", title: "Nasce a BAA",        description: "A Basketball Association of America é fundada, precursora direta da NBA. O primeiro jogo oficial acontece em Toronto.", icon: "🏛️" },
+      { year: "1949", title: "Surge a NBA",        description: "A BAA se funde com a NBL e nasce a National Basketball Association, com 17 franquias e um novo capítulo na história do esporte.", icon: "⭐" },
+      { year: "1962", title: "Wilt Marca 100",     description: "Wilt Chamberlain anota 100 pontos em um único jogo pelo Philadelphia Warriors contra o New York Knicks — recorde que existe até hoje.", icon: "💯" },
+      { year: "1979", title: "Linha de 3 Pontos",  description: "A NBA adota oficialmente a linha de três pontos, revolucionando as estratégias de jogo e abrindo espaço para novos estilos.", icon: "🎯" },
+      { year: "1984", title: "Era Jordan",         description: "Michael Jordan é draftado pelo Chicago Bulls e inicia a maior trajetória individual da história da NBA, com 6 títulos e 6 MVPs das Finais.", icon: "🐐" },
+      { year: "1992", title: "Dream Team",         description: "Os EUA enviam profissionais da NBA às Olimpíadas de Barcelona pela primeira vez. O Dream Team vence todos os jogos por média de 44 pontos.", icon: "🥇" },
+      { year: "2003", title: "LeBron Chega",       description: "LeBron James é selecionado em primeiro lugar pelo Cleveland Cavaliers com apenas 18 anos, começando uma jornada rumo aos recordes históricos.", icon: "👑" },
+      { year: "2016", title: "Cavaliers Campeões", description: "Cleveland vence o Golden State Warriors de virada, saindo de 1-3 nas finais. O maior comeback da história das Finais da NBA.", icon: "🏆" },
+      { year: "2023", title: "LeBron Bate Kareem", description: "LeBron James ultrapassa Kareem Abdul-Jabbar e se torna o maior pontuador da história da NBA com 38.388 pontos.", icon: "📊" },
+    ];
+ 
+    function TimelineItem({ item, index, isActive, onClick, isLeft, visible }) {
+      const delay = index * 0.07;
+      return (
+        <div
+          onClick={() => onClick(index)}
+          style={{
+            display:"flex", flexDirection: isLeft ? "row-reverse" : "row",
+            alignItems:"flex-start", position:"relative", cursor:"pointer",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(28px)",
+            transition:`opacity 0.5s ease ${delay}s, transform 0.5s ease ${delay}s`,
+          }}
+        >
+          <div style={{
+            width:"calc(50% - 40px)", padding:"20px 24px",
+            background: isActive ? "linear-gradient(135deg,rgba(255,107,0,0.15),rgba(255,107,0,0.05))" : "rgba(255,255,255,0.03)",
+            border: isActive ? "1px solid rgba(255,107,0,0.5)" : "1px solid rgba(255,255,255,0.07)",
+            borderRadius:"12px", transition:"all 0.35s cubic-bezier(0.4,0,0.2,1)",
+            marginLeft: isLeft ? "40px" : "0", marginRight: isLeft ? "0" : "40px",
+            transform: isActive ? "translateY(-2px)" : "translateY(0)",
+            boxShadow: isActive ? "0 8px 32px rgba(255,107,0,0.15)" : "0 2px 8px rgba(0,0,0,0.2)",
+          }}>
+            <div style={{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"8px" }}>
+              <span style={{ fontSize:"20px" }}>{item.icon}</span>
+              <span style={{ fontSize:"11px", letterSpacing:"3px", color:"rgba(255,107,0,0.9)", fontWeight:"700", fontFamily:"'Bebas Neue',sans-serif" }}>{item.year}</span>
+            </div>
+            <h3 style={{ fontSize:"16px", fontWeight:"700", color: isActive ? "#fff" : "rgba(255,255,255,0.8)", marginBottom:"8px", fontFamily:"'Bebas Neue',sans-serif", letterSpacing:"1.5px", transition:"color 0.3s" }}>{item.title}</h3>
+            <div style={{ overflow:"hidden", maxHeight: isActive ? "200px" : "0px", opacity: isActive ? 1 : 0, transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease" }}>
+              <p style={{ fontSize:"13.5px", lineHeight:"1.65", color:"rgba(255,255,255,0.65)", fontFamily:"'DM Sans',sans-serif", marginTop:"4px" }}>{item.description}</p>
+            </div>
+          </div>
+          <div style={{
+            position:"absolute", left:"50%", top:"24px", transform:"translateX(-50%)",
+            width: isActive ? "18px" : "12px", height: isActive ? "18px" : "12px",
+            borderRadius:"50%", background: isActive ? "#FF6B00" : "rgba(255,255,255,0.2)",
+            border: isActive ? "3px solid rgba(255,107,0,0.4)" : "2px solid rgba(255,255,255,0.1)",
+            transition:"all 0.35s cubic-bezier(0.4,0,0.2,1)",
+            boxShadow: isActive ? "0 0 20px rgba(255,107,0,0.6)" : "none", zIndex:2,
+          }} />
+        </div>
+      );
+    }
+ 
+    function LinhaDoTempo() {
+      const [activeIndex, setActiveIndex] = useStateT(null);
+      const [visibleItems, setVisibleItems] = useStateT([]);
+      const itemRefs = useRefT([]);
+ 
+      useEffectT(() => {
+        const observer = new IntersectionObserver(
+          (entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const idx = parseInt(entry.target.dataset.index); setVisibleItems(prev => prev.includes(idx) ? prev : [...prev, idx]); } }); },
+          { threshold: 0.2 }
+        );
+        itemRefs.current.forEach(ref => { if (ref) observer.observe(ref); });
+        return () => observer.disconnect();
+      }, []);
+ 
+      return (
+        <div style={{ padding:"80px 20px" }}>
+          <div style={{ maxWidth:"900px", margin:"0 auto" }}>
+            <div style={{ textAlign:"center", marginBottom:"64px" }}>
+              <p style={{ fontSize:"11px", letterSpacing:"4px", textTransform:"uppercase", color:"rgba(255,107,0,0.8)", fontWeight:"600", marginBottom:"12px", fontFamily:"'DM Sans',sans-serif" }}>Marcos Históricos</p>
+              <h2 id="titulo-timeline" style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:"clamp(42px,6vw,72px)", color:"#fff", lineHeight:1, letterSpacing:"2px", marginBottom:"16px" }}>
+                Linha do<br/>Tempo <span style={{ color:"#FF6B00" }}>NBA</span>
+              </h2>
+              <p style={{ color:"rgba(255,255,255,0.35)", fontSize:"13px", fontStyle:"italic", fontFamily:"'DM Sans',sans-serif" }}>Clique em um marco para expandir</p>
+            </div>
+            <div style={{ position:"relative", display:"flex", flexDirection:"column", gap:"32px" }}>
+              <div style={{ position:"absolute", left:"50%", top:0, bottom:0, width:"2px", background:"linear-gradient(to bottom,transparent,rgba(255,107,0,0.3) 10%,rgba(255,107,0,0.3) 90%,transparent)", transform:"translateX(-50%)", zIndex:1 }} />
+              {timelineData.map((item, index) => (
+                <div key={index} data-index={index} ref={el => itemRefs.current[index] = el}>
+                  <TimelineItem item={item} index={index} isActive={activeIndex === index} onClick={(i) => setActiveIndex(prev => prev === i ? null : i)} isLeft={index % 2 !== 0} visible={visibleItems.includes(index)} />
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign:"center", marginTop:"64px", paddingTop:"40px", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={{ fontSize:"12px", color:"rgba(255,255,255,0.25)", letterSpacing:"2px", fontFamily:"'Bebas Neue',sans-serif" }}>1891 — 2023 · NBA HISTORY</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+ 
+    ReactDOM.createRoot(document.getElementById("react-timeline")).render(<LinhaDoTempo />);
+  </script>
+ 
+  <!-- ================================================
+       QUIZ — React (auto-contido, sem main.js)
+       ================================================ -->
+  <script type="text/babel">
+    const { useState: useStateQ, useEffect: useEffectQ } = React;
+ 
+    const PERGUNTAS = [
+      {
+        pergunta: "Em que ano a NBA foi oficialmente fundada?",
+        opcoes: ["1946", "1949", "1952", "1955"],
+        correta: 1,
+        curiosidade: "A BAA foi criada em 1946, mas a NBA como conhecemos hoje surgiu em 1949 com a fusão com a NBL."
+      },
+      {
+        pergunta: "Quem detém o recorde de pontos em um único jogo na NBA?",
+        opcoes: ["Michael Jordan", "Kobe Bryant", "Wilt Chamberlain", "LeBron James"],
+        correta: 2,
+        curiosidade: "Wilt Chamberlain marcou 100 pontos em 2 de março de 1962, jogando pelo Philadelphia Warriors contra o New York Knicks."
+      },
+      {
+        pergunta: "Quantos títulos Michael Jordan conquistou com o Chicago Bulls?",
+        opcoes: ["4", "5", "6", "7"],
+        correta: 2,
+        curiosidade: "Jordan ganhou 6 anéis em duas 'three-peats': 1991-93 e 1996-98, sendo MVP das Finais em todas as vezes."
+      },
+      {
+        pergunta: "Qual é a duração de um quarto na NBA?",
+        opcoes: ["10 minutos", "12 minutos", "15 minutos", "20 minutos"],
+        correta: 1,
+        curiosidade: "Na NBA cada quarto tem 12 minutos, totalizando 48 minutos. A FIBA usa quartos de 10 minutos (40 minutos no total)."
+      },
+      {
+        pergunta: "LeBron James superou o recorde de pontuação de quem?",
+        opcoes: ["Michael Jordan", "Kobe Bryant", "Karl Malone", "Kareem Abdul-Jabbar"],
+        correta: 3,
+        curiosidade: "Em fevereiro de 2023, LeBron ultrapassou os 38.387 pontos de Kareem Abdul-Jabbar, tornando-se o maior pontuador da história da NBA."
+      },
+      {
+        pergunta: "Em que cidade o basquete foi inventado por James Naismith?",
+        opcoes: ["Boston", "Nova York", "Springfield", "Chicago"],
+        correta: 2,
+        curiosidade: "Naismith inventou o basquete em dezembro de 1891 na cidade de Springfield, Massachusetts, nos Estados Unidos."
+      },
+      {
+        pergunta: "Quantas franquias existem atualmente na NBA?",
+        opcoes: ["28", "29", "30", "32"],
+        correta: 2,
+        curiosidade: "A NBA conta com 30 franquias divididas em duas conferências: Leste e Oeste, cada uma com 15 times."
+      },
+    ];
+ 
+    const MEDALHAS = [
+      { min: 7, emoji: "🏆", titulo: "LENDÁRIO!", sub: "Perfeito! Você é um verdadeiro expert em NBA!" },
+      { min: 5, emoji: "🥇", titulo: "INCRÍVEL!",  sub: "Conhecimento de campeão! Quase perfeito." },
+      { min: 3, emoji: "🥈", titulo: "BOM JOGO!", sub: "Você sabe bastante sobre basquete. Continue praticando!" },
+      { min: 0, emoji: "🥉", titulo: "TENTE DE NOVO!", sub: "Estude mais um pouco e volte para dominar o quiz!" },
+    ];
+ 
+    /* ---- Estilos embutidos (sem depender de style.css para o quiz) ---- */
+    const S = {
+      section: {
+        padding: "80px 20px",
+        fontFamily: "'DM Sans', sans-serif",
+      },
+      inner: {
+        maxWidth: "680px",
+        margin: "0 auto",
+      },
+      label: {
+        fontSize: "11px",
+        letterSpacing: "4px",
+        textTransform: "uppercase",
+        color: "rgba(255,107,0,0.85)",
+        fontWeight: "600",
+        marginBottom: "12px",
+        display: "block",
+      },
+      badge: {
+        display: "inline-block",
+        background: "rgba(255,107,0,0.15)",
+        border: "1px solid rgba(255,107,0,0.4)",
+        color: "#FF6B00",
+        fontSize: "9px",
+        letterSpacing: "2px",
+        padding: "2px 8px",
+        borderRadius: "4px",
+        marginLeft: "8px",
+        verticalAlign: "middle",
+      },
+      title: {
+        fontFamily: "'Bebas Neue', sans-serif",
+        fontSize: "clamp(42px, 6vw, 72px)",
+        color: "#fff",
+        lineHeight: 1,
+        letterSpacing: "2px",
+        marginBottom: "48px",
+      },
+      card: {
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        borderRadius: "16px",
+        padding: "36px 32px",
+        position: "relative",
+        overflow: "hidden",
+      },
+      progressBar: {
+        height: "3px",
+        background: "rgba(255,255,255,0.07)",
+        borderRadius: "99px",
+        marginBottom: "28px",
+        overflow: "hidden",
+      },
+      progressFill: (pct) => ({
+        height: "100%",
+        borderRadius: "99px",
+        background: "linear-gradient(90deg, #FF6B00, #FF9A00)",
+        width: `${pct}%`,
+        transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
+      }),
+      qNum: {
+        fontSize: "11px",
+        letterSpacing: "3px",
+        textTransform: "uppercase",
+        color: "rgba(255,255,255,0.3)",
+        marginBottom: "16px",
+      },
+      question: {
+        fontSize: "clamp(17px, 2.5vw, 22px)",
+        fontWeight: "700",
+        color: "#fff",
+        lineHeight: "1.45",
+        marginBottom: "28px",
+        fontFamily: "'Bebas Neue', sans-serif",
+        letterSpacing: "0.5px",
+      },
+      optionBase: {
+        width: "100%",
+        textAlign: "left",
+        padding: "14px 18px",
+        marginBottom: "10px",
+        borderRadius: "10px",
+        border: "1px solid rgba(255,255,255,0.1)",
+        background: "rgba(255,255,255,0.04)",
+        color: "rgba(255,255,255,0.8)",
+        fontSize: "14px",
+        fontFamily: "'DM Sans', sans-serif",
+        cursor: "pointer",
+        transition: "all 0.2s ease",
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+      },
+      optionCorrect: {
+        border: "1px solid rgba(72,199,116,0.6)",
+        background: "rgba(72,199,116,0.12)",
+        color: "#fff",
+      },
+      optionWrong: {
+        border: "1px solid rgba(255,80,80,0.5)",
+        background: "rgba(255,80,80,0.1)",
+        color: "rgba(255,255,255,0.5)",
+      },
+      optionDisabled: {
+        cursor: "default",
+        opacity: 0.55,
+      },
+      letter: {
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "26px",
+        height: "26px",
+        borderRadius: "6px",
+        background: "rgba(255,255,255,0.08)",
+        fontSize: "12px",
+        fontWeight: "700",
+        flexShrink: 0,
+        fontFamily: "'Bebas Neue', sans-serif",
+        letterSpacing: "1px",
+      },
+      feedback: {
+        marginTop: "16px",
+        padding: "14px 18px",
+        borderRadius: "10px",
+        fontSize: "13.5px",
+        lineHeight: "1.6",
+        color: "rgba(255,255,255,0.75)",
+      },
+      feedbackCorrect: {
+        background: "rgba(72,199,116,0.1)",
+        border: "1px solid rgba(72,199,116,0.3)",
+      },
+      feedbackWrong: {
+        background: "rgba(255,80,80,0.08)",
+        border: "1px solid rgba(255,80,80,0.25)",
+      },
+      nav: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: "24px",
+      },
+      scoreText: {
+        fontSize: "13px",
+        color: "rgba(255,255,255,0.4)",
+        letterSpacing: "1px",
+        fontFamily: "'Bebas Neue', sans-serif",
+      },
+      nextBtn: {
+        background: "linear-gradient(135deg, #FF6B00, #FF9A00)",
+        color: "#fff",
+        border: "none",
+        borderRadius: "8px",
+        padding: "10px 24px",
+        fontFamily: "'Bebas Neue', sans-serif",
+        fontSize: "15px",
+        letterSpacing: "2px",
+        cursor: "pointer",
+        transition: "transform 0.2s, box-shadow 0.2s",
+      },
+      /* Resultado */
+      result: {
+        textAlign: "center",
+        padding: "48px 32px",
+      },
+      resultEmoji: {
+        fontSize: "72px",
+        marginBottom: "16px",
+        display: "block",
+      },
+      resultTitle: {
+        fontFamily: "'Bebas Neue', sans-serif",
+        fontSize: "clamp(36px, 6vw, 60px)",
+        color: "#fff",
+        letterSpacing: "3px",
+        marginBottom: "8px",
+      },
+      resultSub: {
+        color: "rgba(255,255,255,0.55)",
+        fontSize: "15px",
+        marginBottom: "20px",
+      },
+      resultScore: {
+        fontFamily: "'Bebas Neue', sans-serif",
+        fontSize: "clamp(52px, 8vw, 80px)",
+        background: "linear-gradient(135deg, #FF6B00, #FF9A00)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text",
+        marginBottom: "32px",
+        display: "block",
+      },
+      restartBtn: {
+        background: "transparent",
+        border: "1px solid rgba(255,107,0,0.5)",
+        color: "#FF6B00",
+        borderRadius: "8px",
+        padding: "12px 32px",
+        fontFamily: "'Bebas Neue', sans-serif",
+        fontSize: "15px",
+        letterSpacing: "2px",
+        cursor: "pointer",
+        transition: "all 0.2s ease",
+      },
+    };
+ 
+    const LETRAS = ["A", "B", "C", "D"];
+ 
+    function QuizNBA() {
+      const [qIndex,    setQIndex]    = useStateQ(0);
+      const [score,     setScore]     = useStateQ(0);
+      const [selected,  setSelected]  = useStateQ(null);  // índice da opção clicada
+      const [answered,  setAnswered]  = useStateQ(false);
+      const [finished,  setFinished]  = useStateQ(false);
+      const [hovered,   setHovered]   = useStateQ(null);
+ 
+      const total   = PERGUNTAS.length;
+      const current = PERGUNTAS[qIndex];
+      const pct     = ((qIndex) / total) * 100;
+ 
+      function handleSelect(idx) {
+        if (answered) return;
+        const isCorrect = idx === current.correta;
+        setSelected(idx);
+        setAnswered(true);
+        if (isCorrect) setScore(s => s + 1);
+      }
+ 
+      function handleNext() {
+        if (qIndex + 1 >= total) {
+          setFinished(true);
+        } else {
+          setQIndex(i => i + 1);
+          setSelected(null);
+          setAnswered(false);
+        }
+      }
+ 
+      function handleRestart() {
+        setQIndex(0);
+        setScore(0);
+        setSelected(null);
+        setAnswered(false);
+        setFinished(false);
+      }
+ 
+      /* Medalha */
+      const medalha = MEDALHAS.find(m => score >= m.min);
+ 
+      /* Estilo dinâmico de cada opção */
+      function optStyle(idx) {
+        let style = { ...S.optionBase };
+        if (answered) {
+          if (idx === current.correta)       style = { ...style, ...S.optionCorrect };
+          else if (idx === selected)         style = { ...style, ...S.optionWrong };
+          else                               style = { ...style, ...S.optionDisabled };
+        } else if (hovered === idx) {
+          style = { ...style, background: "rgba(255,107,0,0.1)", border: "1px solid rgba(255,107,0,0.35)", color: "#fff" };
+        }
+        return style;
+      }
+ 
+      return (
+        <div style={S.section}>
+          <div style={S.inner}>
+            {/* Cabeçalho da seção */}
+            <p style={S.label}>
+              Teste seu Conhecimento
+              <span style={S.badge}>NOVO</span>
+            </p>
+            <h2 style={S.title}>Quiz<br/>NBA</h2>
+ 
+            {/* Card principal */}
+            <div style={S.card}>
+ 
+              {!finished ? (
+                <>
+                  {/* Barra de progresso */}
+                  <div style={S.progressBar}>
+                    <div style={S.progressFill(pct)} />
+                  </div>
+ 
+                  {/* Número da pergunta */}
+                  <p style={S.qNum}>Pergunta {qIndex + 1} de {total}</p>
+ 
+                  {/* Texto da pergunta */}
+                  <p style={S.question}>{current.pergunta}</p>
+ 
+                  {/* Opções */}
+                  <div>
+                    {current.opcoes.map((op, idx) => (
+                      <button
+                        key={idx}
+                        style={optStyle(idx)}
+                        onClick={() => handleSelect(idx)}
+                        onMouseEnter={() => !answered && setHovered(idx)}
+                        onMouseLeave={() => setHovered(null)}
+                        disabled={answered}
+                        aria-label={`Opção ${LETRAS[idx]}: ${op}`}
+                      >
+                        <span style={{
+                          ...S.letter,
+                          background: answered && idx === current.correta
+                            ? "rgba(72,199,116,0.25)"
+                            : answered && idx === selected && idx !== current.correta
+                            ? "rgba(255,80,80,0.2)"
+                            : hovered === idx && !answered
+                            ? "rgba(255,107,0,0.2)"
+                            : "rgba(255,255,255,0.08)",
+                        }}>
+                          {answered
+                            ? idx === current.correta ? "✓"
+                              : idx === selected ? "✗"
+                              : LETRAS[idx]
+                            : LETRAS[idx]}
+                        </span>
+                        {op}
+                      </button>
+                    ))}
+                  </div>
+ 
+                  {/* Feedback / curiosidade */}
+                  {answered && (
+                    <div style={{
+                      ...S.feedback,
+                      ...(selected === current.correta ? S.feedbackCorrect : S.feedbackWrong),
+                    }}>
+                      <strong style={{ color: selected === current.correta ? "#48C774" : "#FF5050" }}>
+                        {selected === current.correta ? "✓ Correto! " : "✗ Errou! "}
+                      </strong>
+                      {current.curiosidade}
+                    </div>
+                  )}
+ 
+                  {/* Navegação */}
+                  <div style={S.nav}>
+                    <span style={S.scoreText}>Pontuação: {score}</span>
+                    {answered && (
+                      <button
+                        style={S.nextBtn}
+                        onClick={handleNext}
+                        onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(255,107,0,0.4)"; }}
+                        onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
+                      >
+                        {qIndex + 1 >= total ? "Ver Resultado →" : "Próxima →"}
+                      </button>
+                    )}
+                  </div>
+                </>
+              ) : (
+                /* ---- TELA DE RESULTADO ---- */
+                <div style={S.result}>
+                  <span style={S.resultEmoji}>{medalha.emoji}</span>
+                  <h3 style={S.resultTitle}>{medalha.titulo}</h3>
+                  <p style={S.resultSub}>{medalha.sub}</p>
+                  <span style={S.resultScore}>{score}/{total}</span>
+                  <button
+                    style={S.restartBtn}
+                    onClick={handleRestart}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,107,0,0.1)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+                  >
+                    ↺ Jogar Novamente
+                  </button>
+                </div>
+              )}
+ 
+              {/* Decoração de fundo */}
+              <div style={{
+                position: "absolute", bottom: "-20px", right: "-20px",
+                width: "120px", height: "120px", borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(255,107,0,0.08) 0%, transparent 70%)",
+                pointerEvents: "none",
+              }} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+ 
+    ReactDOM.createRoot(document.getElementById("react-quiz")).render(<QuizNBA />);
+  </script>
+ 
+  <!-- ================================================
+       COMPARADOR DE LENDAS — React (auto-contido)
+       ================================================ -->
+  <script type="text/babel">
+    const { useState: useStateC } = React;
+ 
+    const JOGADORES = {
+      jordan: {
+        nome: "Michael Jordan", apelido: "The G.O.A.T", numero: "23",
+        cor: "#CE1141",
+        foto: "https://cdn.nba.com/headshots/nba/latest/1040x760/893.png",
+        stats: {
+          "Pts / Jogo":   { val: 30.1, max: 35 },
+          "Reb / Jogo":   { val: 6.2,  max: 15 },
+          "Ast / Jogo":   { val: 5.3,  max: 12 },
+          "Anéis":        { val: 6,    max: 6  },
+          "MVPs":         { val: 5,    max: 6  },
+          "% Arremessos": { val: 49.7, max: 60 },
+        },
+      },
+      lebron: {
+        nome: "LeBron James", apelido: "The King", numero: "6",
+        cor: "#552583",
+        foto: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png",
+        stats: {
+          "Pts / Jogo":   { val: 27.1, max: 35 },
+          "Reb / Jogo":   { val: 7.5,  max: 15 },
+          "Ast / Jogo":   { val: 7.4,  max: 12 },
+          "Anéis":        { val: 4,    max: 6  },
+          "MVPs":         { val: 4,    max: 6  },
+          "% Arremessos": { val: 50.4, max: 60 },
+        },
+      },
+      kobe: {
+        nome: "Kobe Bryant", apelido: "Black Mamba", numero: "24",
+        cor: "#FDB927",
+        foto: "https://cdn.nba.com/headshots/nba/latest/1040x760/977.png",
+        stats: {
+          "Pts / Jogo":   { val: 25.0, max: 35 },
+          "Reb / Jogo":   { val: 5.2,  max: 15 },
+          "Ast / Jogo":   { val: 4.7,  max: 12 },
+          "Anéis":        { val: 5,    max: 6  },
+          "MVPs":         { val: 1,    max: 6  },
+          "% Arremessos": { val: 44.7, max: 60 },
+        },
+      },
+      magic: {
+        nome: "Magic Johnson", apelido: "Magic", numero: "32",
+        cor: "#FDB927",
+        foto: "https://cdn.nba.com/headshots/nba/latest/1040x760/77142.png",
+        stats: {
+          "Pts / Jogo":   { val: 19.5, max: 35 },
+          "Reb / Jogo":   { val: 7.2,  max: 15 },
+          "Ast / Jogo":   { val: 11.2, max: 12 },
+          "Anéis":        { val: 5,    max: 6  },
+          "MVPs":         { val: 3,    max: 6  },
+          "% Arremessos": { val: 52.0, max: 60 },
+        },
+      },
+      bird: {
+        nome: "Larry Bird", apelido: "Larry Legend", numero: "33",
+        cor: "#007A33",
+        foto: "https://cdn.nba.com/headshots/nba/latest/1040x760/1449.png",
+        stats: {
+          "Pts / Jogo":   { val: 24.3, max: 35 },
+          "Reb / Jogo":   { val: 10.0, max: 15 },
+          "Ast / Jogo":   { val: 6.3,  max: 12 },
+          "Anéis":        { val: 3,    max: 6  },
+          "MVPs":         { val: 3,    max: 6  },
+          "% Arremessos": { val: 49.6, max: 60 },
+        },
+      },
+      shaq: {
+        nome: "Shaquille O'Neal", apelido: "Shaq Diesel", numero: "34",
+        cor: "#006BB6",
+        foto: "https://cdn.nba.com/headshots/nba/latest/1040x760/406.png",
+        stats: {
+          "Pts / Jogo":   { val: 23.7, max: 35 },
+          "Reb / Jogo":   { val: 10.9, max: 15 },
+          "Ast / Jogo":   { val: 2.5,  max: 12 },
+          "Anéis":        { val: 4,    max: 6  },
+          "MVPs":         { val: 1,    max: 6  },
+          "% Arremessos": { val: 58.2, max: 60 },
+        },
+      },
+    };
+ 
+    const OPCOES = [
+      { value: "jordan", label: "Michael Jordan" },
+      { value: "lebron", label: "LeBron James"   },
+      { value: "kobe",   label: "Kobe Bryant"    },
+      { value: "magic",  label: "Magic Johnson"  },
+      { value: "bird",   label: "Larry Bird"     },
+      { value: "shaq",   label: "Shaquille O'Neal" },
+    ];
+ 
+    /* ---- barra de stat ---- */
+    function StatBar({ label, a, b, corA, corB }) {
+      const pctA = Math.min(100, (a.val / a.max) * 100);
+      const pctB = Math.min(100, (b.val / b.max) * 100);
+      const venceA = a.val > b.val;
+      const venceB = b.val > a.val;
+      return (
+        <div style={{ marginBottom: "20px" }}>
+          {/* Label */}
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"6px" }}>
+            <span style={{
+              fontFamily:"'Bebas Neue',sans-serif", fontSize:"13px",
+              letterSpacing:"1.5px", color: venceA ? "#fff" : "rgba(255,255,255,0.45)",
+              transition:"color 0.3s",
+            }}>{a.val}</span>
+            <span style={{ fontSize:"10px", letterSpacing:"3px", textTransform:"uppercase", color:"rgba(255,255,255,0.3)", fontFamily:"'DM Sans',sans-serif" }}>{label}</span>
+            <span style={{
+              fontFamily:"'Bebas Neue',sans-serif", fontSize:"13px",
+              letterSpacing:"1.5px", color: venceB ? "#fff" : "rgba(255,255,255,0.45)",
+              transition:"color 0.3s",
+            }}>{b.val}</span>
+          </div>
+          {/* Barras duplas */}
+          <div style={{ display:"flex", gap:"4px", alignItems:"center" }}>
+            {/* Barra A — cresce da direita para esquerda */}
+            <div style={{ flex:1, height:"6px", background:"rgba(255,255,255,0.07)", borderRadius:"99px", overflow:"hidden", direction:"rtl" }}>
+              <div style={{
+                height:"100%", width:`${pctA}%`,
+                background: venceA ? corA : `${corA}80`,
+                borderRadius:"99px",
+                transition:"width 0.6s cubic-bezier(0.4,0,0.2,1)",
+                boxShadow: venceA ? `0 0 8px ${corA}60` : "none",
+              }} />
+            </div>
+            {/* Barra B — cresce da esquerda */}
+            <div style={{ flex:1, height:"6px", background:"rgba(255,255,255,0.07)", borderRadius:"99px", overflow:"hidden" }}>
+              <div style={{
+                height:"100%", width:`${pctB}%`,
+                background: venceB ? corB : `${corB}80`,
+                borderRadius:"99px",
+                transition:"width 0.6s cubic-bezier(0.4,0,0.2,1)",
+                boxShadow: venceB ? `0 0 8px ${corB}60` : "none",
+              }} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+ 
+    /* ---- select estilizado ---- */
+    function PlayerSelect({ value, onChange, excludeValue, side }) {
+      const jogador = JOGADORES[value];
+      const isLeft  = side === "A";
+      return (
+        <div style={{ display:"flex", flexDirection:"column", alignItems: isLeft ? "flex-start" : "flex-end", gap:"12px", flex:1 }}>
+          {/* Foto */}
+          <div style={{
+            width:"80px", height:"80px", borderRadius:"50%", overflow:"hidden",
+            border:`2px solid ${jogador.cor}60`,
+            boxShadow:`0 0 20px ${jogador.cor}30`,
+            background:"rgba(255,255,255,0.05)",
+          }}>
+            <img src={jogador.foto} alt={jogador.nome} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top" }} />
+          </div>
+          {/* Nome + apelido */}
+          <div style={{ textAlign: isLeft ? "left" : "right" }}>
+            <p style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:"20px", color:"#fff", letterSpacing:"1.5px", marginBottom:"2px" }}>{jogador.nome}</p>
+            <p style={{ fontSize:"11px", color: jogador.cor, letterSpacing:"2px", textTransform:"uppercase", fontFamily:"'DM Sans',sans-serif" }}>{jogador.apelido}</p>
+          </div>
+          {/* Select */}
+          <select
+            value={value}
+            onChange={e => onChange(e.target.value)}
+            style={{
+              background:"rgba(255,255,255,0.05)",
+              border:`1px solid ${jogador.cor}50`,
+              borderRadius:"8px",
+              color:"rgba(255,255,255,0.8)",
+              padding:"8px 12px",
+              fontSize:"13px",
+              fontFamily:"'DM Sans',sans-serif",
+              cursor:"pointer",
+              outline:"none",
+              width:"100%",
+            }}
+          >
+            {OPCOES.filter(o => o.value !== excludeValue).map(o => (
+              <option key={o.value} value={o.value} style={{ background:"#1a1a2e" }}>{o.label}</option>
+            ))}
+          </select>
+        </div>
+      );
+    }
+ 
+    function ComparadorLendas() {
+      const [playerA, setPlayerA] = useStateC("jordan");
+      const [playerB, setPlayerB] = useStateC("lebron");
+ 
+      const dA = JOGADORES[playerA];
+      const dB = JOGADORES[playerB];
+      const statsKeys = Object.keys(dA.stats);
+ 
+      /* Quem vence mais categorias */
+      const vitorias = statsKeys.reduce((acc, k) => {
+        if (dA.stats[k].val > dB.stats[k].val) acc.a++;
+        else if (dB.stats[k].val > dA.stats[k].val) acc.b++;
+        return acc;
+      }, { a: 0, b: 0 });
+ 
+      return (
+        <div style={{ padding:"80px 20px", fontFamily:"'DM Sans',sans-serif" }}>
+          <div style={{ maxWidth:"760px", margin:"0 auto" }}>
+ 
+            {/* Cabeçalho */}
+            <p style={{ fontSize:"11px", letterSpacing:"4px", textTransform:"uppercase", color:"rgba(255,107,0,0.85)", fontWeight:"600", marginBottom:"12px" }}>
+              Análise <span style={{ display:"inline-block", background:"rgba(255,107,0,0.15)", border:"1px solid rgba(255,107,0,0.4)", color:"#FF6B00", fontSize:"9px", letterSpacing:"2px", padding:"2px 8px", borderRadius:"4px", marginLeft:"8px", verticalAlign:"middle" }}>NOVO</span>
+            </p>
+            <h2 style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:"clamp(42px,6vw,72px)", color:"#fff", lineHeight:1, letterSpacing:"2px", marginBottom:"48px" }}>
+              Compare<br/>Lendas
+            </h2>
+ 
+            {/* Card principal */}
+            <div style={{ background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:"20px", padding:"36px 32px" }}>
+ 
+              {/* Selects lado a lado */}
+              <div style={{ display:"flex", alignItems:"center", gap:"24px", marginBottom:"36px", flexWrap:"wrap" }}>
+                <PlayerSelect value={playerA} onChange={setPlayerA} excludeValue={playerB} side="A" />
+ 
+                {/* VS badge */}
+                <div style={{
+                  flexShrink:0, width:"52px", height:"52px", borderRadius:"50%",
+                  background:"linear-gradient(135deg,rgba(255,107,0,0.2),rgba(255,107,0,0.05))",
+                  border:"1px solid rgba(255,107,0,0.3)",
+                  display:"flex", alignItems:"center", justifyContent:"center",
+                  fontFamily:"'Bebas Neue',sans-serif", fontSize:"18px",
+                  color:"#FF6B00", letterSpacing:"2px",
+                }}>VS</div>
+ 
+                <PlayerSelect value={playerB} onChange={setPlayerB} excludeValue={playerA} side="B" />
+              </div>
+ 
+              {/* Placar de categorias */}
+              <div style={{
+                display:"flex", justifyContent:"space-between", alignItems:"center",
+                padding:"12px 20px", borderRadius:"10px",
+                background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.06)",
+                marginBottom:"28px",
+              }}>
+                <span style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:"28px", color: vitorias.a >= vitorias.b ? dA.cor : "rgba(255,255,255,0.3)", letterSpacing:"2px", transition:"color 0.4s" }}>{vitorias.a}</span>
+                <span style={{ fontSize:"10px", letterSpacing:"3px", textTransform:"uppercase", color:"rgba(255,255,255,0.25)" }}>Categorias Vencidas</span>
+                <span style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:"28px", color: vitorias.b >= vitorias.a ? dB.cor : "rgba(255,255,255,0.3)", letterSpacing:"2px", transition:"color 0.4s" }}>{vitorias.b}</span>
+              </div>
+ 
+              {/* Barras de stats */}
+              <div style={{ borderTop:"1px solid rgba(255,255,255,0.06)", paddingTop:"24px" }}>
+                {statsKeys.map(k => (
+                  <StatBar key={k} label={k} a={dA.stats[k]} b={dB.stats[k]} corA={dA.cor} corB={dB.cor} />
+                ))}
+              </div>
+ 
+              {/* Legenda */}
+              <div style={{ display:"flex", justifyContent:"space-between", marginTop:"8px" }}>
+                <span style={{ fontSize:"11px", color: dA.cor, letterSpacing:"1px", fontFamily:"'Bebas Neue',sans-serif" }}>← {dA.nome.split(" ")[0].toUpperCase()}</span>
+                <span style={{ fontSize:"11px", color: dB.cor, letterSpacing:"1px", fontFamily:"'Bebas Neue',sans-serif" }}>{dB.nome.split(" ")[0].toUpperCase()} →</span>
+              </div>
+            </div>
+ 
+          </div>
+        </div>
+      );
+    }
+ 
+    ReactDOM.createRoot(document.getElementById("react-comparador")).render(<ComparadorLendas />);
+  </script>
+ 
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
- 
