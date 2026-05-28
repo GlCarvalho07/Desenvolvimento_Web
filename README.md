@@ -15,8 +15,10 @@ boisterous-buttercream-cdd6f0.netlify.app
 ```
 📁 projeto
 ├── basquete.html   # Estrutura e conteúdo da página
+├── testes realizados.pdf      # PDF sobre os testes
 ├── style.css       # Todos os estilos e animações
 └── main.js         # Lógica interativa (simulador)
+
 ```
  
 ---
