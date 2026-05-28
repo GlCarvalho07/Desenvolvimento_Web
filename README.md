@@ -6,7 +6,7 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
  
 ## 📸 Preview
  
-> Acesse o site e explore as seções interativas de simulador, quiz e comparador de jogadores.
+(https://boisterous-buttercream-cdd6f0.netlify.app/)
  
 ---
  
