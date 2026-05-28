@@ -141,4 +141,4 @@ Módulos independentes:
  
 Desenvolvido por **[Guilherme Carvalho](https://github.com/GlCarvalho07)**.
  
-> Este projeto utilizou Inteligência Artificial como auxílio no desenvolvimento.
+> Este projeto utilizou Inteligência Artificial (Claude.ia) como auxílio no desenvolvimento.
