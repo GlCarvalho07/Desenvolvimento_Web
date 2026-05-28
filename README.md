@@ -16,7 +16,7 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
 📁 projeto
 ├── basquete.html   # Estrutura e conteúdo da página
 ├── style.css       # Todos os estilos e animações
-└── main.js         # Lógica interativa (quiz, simulador, comparador, linha do tempo)
+└── main.js         # Lógica interativa (simulador)
 ```
  
 ---
@@ -30,12 +30,53 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
 - **Regras oficiais** em cards comparativos NBA × FIBA
 - **Lendas Imortais** com cards de Michael Jordan, LeBron James, Kobe Bryant e Oscar Schmidt
 ### ⚡ Seções Interativas
+ 
 | Seção | Descrição |
 |---|---|
 | 🕐 **Linha do Tempo** | 10 marcos históricos clicáveis de 1891 a 2023 |
 | 🏀 **Simulador de Jogo** | Placar interativo com +1, +2, +3 pts, desfazer e histórico de lances |
 | ❓ **Quiz NBA** | 7 perguntas com feedback imediato, pontuação e tela de resultado |
 | 📊 **Comparador de Lendas** | Compare 6 jogadores históricos em 6 estatísticas com barras animadas |
+ 
+---
+ 
+## ⚛️ Uso do React
+ 
+Três seções do projeto foram migradas para **React 18**, renderizado diretamente no navegador via CDN (sem necessidade de build ou Node.js). Essa abordagem foi adotada para tornar os componentes interativos **auto-contidos e independentes do `main.js`**, eliminando bugs causados pela ausência ou falha no carregamento do arquivo externo.
+ 
+### Como funciona
+ 
+O React e o Babel são carregados via CDN no final do `<body>`:
+ 
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+```
+ 
+Cada componente é escrito em um bloco `<script type="text/babel">` e montado em um `<div>` reservado no HTML:
+ 
+```html
+<!-- No HTML -->
+<div id="react-quiz"></div>
+ 
+<!-- No script -->
+ReactDOM.createRoot(document.getElementById("react-quiz")).render(<QuizNBA />);
+```
+ 
+### Componentes React do projeto
+ 
+| Componente | Montado em | Descrição |
+|---|---|---|
+| `<LinhaDoTempo />` | `#react-timeline` | Renderiza os 10 marcos históricos com `IntersectionObserver` para animações de entrada e toggle de descrição ao clicar |
+| `<QuizNBA />` | `#react-quiz` | Gerencia o estado completo do quiz: pergunta atual, opção selecionada, pontuação e tela de resultado com medalha |
+| `<ComparadorLendas />` | `#react-comparador` | Exibe barras de estatísticas espelhadas e placar de categorias vencidas, atualizados em tempo real ao trocar os jogadores nos selects |
+ 
+### Por que React nesses componentes?
+ 
+Esses três componentes possuem **estado interno complexo** — animações baseadas em interação, respostas condicionais e re-renderizações frequentes — que tornam a manipulação direta do DOM via JavaScript vanilla verbosa e propensa a bugs. O React simplifica esse gerenciamento com `useState` e `useEffect`, mantendo a interface sempre sincronizada com os dados.
+ 
+> **Nota:** o restante da página (Hero, Ticker, Regras, Simulador e Lendas) continua em HTML/CSS/JS puro, sem dependência do React.
  
 ---
  
@@ -52,6 +93,8 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
 - **HTML5** semântico
 - **CSS3** — variáveis customizadas, Grid, Flexbox, animações com `@keyframes`
 - **JavaScript** vanilla — sem frameworks ou dependências externas
+- **React 18** — via CDN, para os componentes interativos (Linha do Tempo, Quiz e Comparador)
+- **Babel Standalone** — transpilação de JSX diretamente no navegador
 - **Google Fonts:** [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue) · [DM Sans](https://fonts.google.com/specimen/DM+Sans) · [Playfair Display](https://fonts.google.com/specimen/Playfair+Display)
 - **VLibras** — plugin de acessibilidade do governo brasileiro
 ---
@@ -61,6 +104,8 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
 ### `basquete.html`
 Contém toda a marcação semântica da página, organizada nas seções:
 `Hero → Ticker → História → Linha do Tempo → Regras → Simulador → Quiz → Comparador → Lendas`
+ 
+Os componentes React são montados em `<div>`s reservados dentro das respectivas `<section>`s.
  
 ### `style.css`
 Organizado por seção com comentários:
@@ -74,10 +119,9 @@ Módulos independentes:
 - **Header scroll** — adiciona classe `.scrolled` ao rolar
 - **Scroll Reveal** — `IntersectionObserver` para animações de entrada
 - **Alto Contraste** — alterna classe `.high-contrast` no `body`
-- **Linha do Tempo** — geração dinâmica dos itens e toggle de descrição
 - **Simulador** — controle de placar, histórico e quartos
-- **Quiz** — renderização de perguntas, validação e tela de resultado
-- **Comparador** — barras de estatísticas comparativas entre jogadores
+> As seções de Linha do Tempo, Quiz e Comparador foram migradas para React e não dependem mais do `main.js`.
+ 
 ---
  
 ## 🏅 Jogadores em Destaque
