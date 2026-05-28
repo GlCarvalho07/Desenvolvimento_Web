@@ -1,4 +1,4 @@
-# 🏀 BASQUETE — História, Regras e Lendas da NBA
+# 🏀NBA GL — História, Regras e Lendas da NBA
  
 Site informativo e interativo sobre o universo do basquete: da origem do esporte até as grandes lendas da NBA, com seções dinâmicas e recursos de acessibilidade.
  
