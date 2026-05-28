@@ -46,7 +46,7 @@ Três seções do projeto foram migradas para **React 18**, renderizado diretame
  
 ### Como funciona
  
-O React e o Babel são carregados via CDN no final do `<body>`:
+O React são carregados via CDN no final do `<body>`:
  
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
