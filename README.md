@@ -6,7 +6,7 @@ Site informativo e interativo sobre o universo do basquete: da origem do esporte
  
 ## 📸 Preview
  
-(boisterous-buttercream-cdd6f0.netlify.app)
+boisterous-buttercream-cdd6f0.netlify.app
  
 ---
  
